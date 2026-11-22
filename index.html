@@ -28,7 +28,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:linear-gradient(180deg,#f7f2e8 0%,#f2ebdf 100%);color:var(--ink);font-family:var(--sans);overflow-x:hidden}
+body{margin:0;background:linear-gradient(180deg,#f7f2e8 0%,#f2ebdf 100%);color:var(--ink);font-family:var(--sans);overflow-x:clip}
 body.overlay-open{overflow:hidden}
 a{text-decoration:none;color:inherit}
 button,input{font:inherit}
@@ -372,6 +372,50 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
 @media(max-width:600px){.hero{padding-top:10px}.container{width:calc(100% - 28px)}.header-inner{display:flex;gap:8px;height:70px}.header .nav-actions{gap:6px}.header .ghost-btn{width:40px;height:40px}.hero-visual{grid-template-columns:1fr 1fr;gap:8px}.hero-main-card{min-height:270px;grid-column:1/3}.hero-side-stack{grid-column:1/3;grid-template-columns:1fr 1fr;grid-template-rows:170px;gap:8px}.hero-side-card{min-height:170px}.hero-copy h1{font-size:clamp(35px,9.5vw,48px)!important;line-height:1.36}.hero-meta{gap:12px}.hero-copy,.hero-copy.reveal{padding:18px 2px 26px}.museum-sticky{min-height:540px}.museum-heading h2{font-size:clamp(34px,10vw,45px)}.museum-object{width:72vw;top:54%}.museum-note{bottom:5%;right:5%;left:5%}.museum-note h3{font-size:24px}.motif-view{width:100%;aspect-ratio:1}.motif-view-label{padding:6px 9px;font-size:10px}.motif-key{gap:12px}.section-head h2{font-size:clamp(32px,9vw,44px)}.product-dialog{width:calc(100% - 16px)}.dialog-info{padding:24px}.cta-box{padding:30px 20px}.feature-grid{gap:14px}.architecture-card figcaption{right:18px;left:18px}.architecture-card figcaption strong{font-size:29px}}
 @media(max-width:360px){.brand-minimal .brand-wordmark{width:55px}.hero-copy h1{font-size:34px!important}.museum-heading h2{font-size:33px}.museum-note p{font-size:10px}.hero-side-stack{grid-template-rows:145px}.hero-side-card{min-height:145px}}
 
+
+/* A custom scroll-expansion inspired by Halde's motion language (original implementation). */
+.halde-reveal{height:215svh;position:relative;background:#ede3d3;isolation:isolate}
+.halde-viewport{--expand:0;--fx-progress:0;position:sticky;top:0;height:100svh;min-height:530px;overflow:hidden;background:radial-gradient(circle at 50% 51%,#fbf6e9,#e8dac6);isolation:isolate}
+.halde-viewport::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;opacity:calc(1 - var(--expand));background-image:radial-gradient(#a27b4c40 .7px,transparent .8px);background-size:22px 22px}
+.halde-photo{position:absolute;inset:0;z-index:2;overflow:hidden;clip-path:inset(calc((1 - var(--expand)) * 22%) calc((1 - var(--expand)) * 30%) round calc((1 - var(--expand)) * 80px));background:linear-gradient(145deg,#826346,#2d221d);will-change:clip-path}
+.halde-photo img{height:100%;width:100%;object-fit:cover;object-position:center 47%;transform:scale(calc(1.22 - var(--expand) * .22)) translate3d(0,calc((.5 - var(--fx-progress)) * 32px),0);will-change:transform}
+.halde-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,11,8,.38),rgba(20,13,8,.12) 46%,rgba(15,11,8,.42));pointer-events:none}
+.halde-kicker{position:absolute;top:max(112px,14%);right:8%;z-index:5;font-size:12px;color:#7b5d39;letter-spacing:.04em;padding-bottom:10px;border-bottom:1px solid rgba(160,125,80,.35);opacity:calc(1 - var(--expand));transform:translateY(calc(var(--expand) * -30px))}
+.halde-title{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;z-index:5;pointer-events:none;margin:0;color:#fff;text-align:center;text-shadow:0 7px 36px rgba(0,0,0,.6);font:400 clamp(54px,7.4vw,130px)/1.05 var(--serif)}
+.halde-title span{display:block;transition:none;will-change:transform}
+.halde-title-first{transform:translateX(calc(var(--expand) * 18vw)) translateY(calc(var(--expand) * -6vh))}
+.halde-title-second{transform:translateX(calc(var(--expand) * -18vw)) translateY(calc(var(--expand) * 6vh));color:#f1d19d}
+.halde-caption{position:absolute;z-index:5;right:8%;bottom:7%;max-width:360px;padding-right:16px;border-right:1px solid #e4c38a;color:#f3e5d0;opacity:clamp(0,calc((var(--expand) - .5) * 3),1);transform:translateY(calc((1 - var(--expand)) * 22px));pointer-events:none}
+.halde-caption b{font:400 26px var(--serif)}
+.halde-caption p{font:12px/2 var(--sans);margin:5px 0 0}
+.halde-sequence{position:absolute;z-index:5;bottom:7%;left:8%;color:#f3e5d0;font-size:12px;letter-spacing:.2em;opacity:clamp(0,calc((var(--expand) - .4) * 3),1)}
+.halde-scroll-mark{position:absolute;z-index:5;bottom:6%;left:50%;transform:translateX(-50%);color:#6c5640;font-size:11px;opacity:calc(1 - var(--expand));letter-spacing:.03em}
+.halde-manifesto{background:#f6f0e5;text-align:center;padding:115px 0 125px}
+.halde-manifesto .eyebrow{justify-content:center}
+.halde-manifesto h2{max-width:1100px;margin:26px auto 0;font:400 clamp(36px,4.9vw,72px)/1.65 var(--serif);color:#c9bba6;letter-spacing:-.01em}
+.halde-manifesto h2 .word{color:#b8ad9d;transition:color .2s linear;white-space:pre-wrap}
+.halde-manifesto h2 .word.lit{color:#3c2c21}
+.halde-manifesto h2 .word.lit.accent-word{color:#ac7e43}
+@media(max-width:860px){
+ .halde-reveal{height:175svh}.halde-viewport{min-height:500px}
+ .halde-photo{clip-path:inset(calc((1 - var(--expand)) * 28%) calc((1 - var(--expand)) * 13%) round calc((1 - var(--expand)) * 46px))}
+ .halde-title{font-size:clamp(48px,9vw,83px)}
+ .halde-title-first{transform:translateX(calc(var(--expand) * 10vw)) translateY(calc(var(--expand) * -13vh))}
+ .halde-title-second{transform:translateX(calc(var(--expand) * -10vw)) translateY(calc(var(--expand) * 13vh))}
+ .halde-caption{right:6%;bottom:11%;max-width:290px}.halde-sequence{left:6%;bottom:5%}.halde-kicker{right:7%;top:14%}
+}
+@media(max-width:560px){
+ .halde-reveal{height:165svh}.halde-title{font-size:clamp(37px,10.2vw,59px);line-height:1.17}
+ .halde-caption{max-width:210px;right:5%;bottom:12%}.halde-caption b{font-size:19px}.halde-caption p{font-size:10px}
+ .halde-sequence{bottom:5%;font-size:10px}.halde-scroll-mark{bottom:10%}.halde-manifesto{padding:74px 0 87px}
+ .halde-manifesto h2{font-size:clamp(31px,8vw,44px);line-height:1.8}
+}
+@media(prefers-reduced-motion:reduce){
+ .halde-reveal{height:90svh!important;min-height:560px}.halde-viewport{--expand:1!important;--fx-progress:1!important;position:relative;height:100%;min-height:560px}
+ .halde-photo{clip-path:none!important}.halde-photo img{transform:none!important}.halde-kicker,.halde-scroll-mark{opacity:0}
+ .halde-caption,.halde-sequence{opacity:1!important}.halde-title span{transform:none!important}.halde-manifesto h2 .word{color:#3c2c21!important}
+}
+
 </style>
 </head>
 <body>
@@ -442,6 +486,26 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
   </section>
 
 
+
+<!-- Scroll-expand photo, split title and progressively revealed words: original animation for Athar. -->
+<section class="halde-reveal" id="scroll-reveal" aria-label="مشهد بصري يتسع مع التمرير">
+  <div class="halde-viewport" data-halde-viewport>
+    <div class="halde-photo">
+      <img src="https://images.unsplash.com/photo-1781133548263-05abf3087dcc?auto=format&amp;fit=crop&amp;w=1800&amp;q=82" alt="أعمدة معبد مصري تتسع صورته مع التمرير" loading="lazy" onerror="this.style.opacity='0'">
+    </div>
+    <span class="halde-kicker">من تفاصيل المعمار إلى روح القطعة</span>
+    <h2 class="halde-title"><span class="halde-title-first">حكايةٌ</span><span class="halde-title-second">تُروى بالنقش.</span></h2>
+    <div class="halde-caption"><b>الجمال لا يختفي… بل يتجدد.</b><p>تستعيد قطع أثر روح الزخارف القديمة، وتقدمها بلغة تليق بمساحات اليوم.</p></div>
+    <div class="halde-sequence" aria-hidden="true">01 / 03</div>
+    <span class="halde-scroll-mark" aria-hidden="true">مرِّر لاكتشاف الحكاية ↓</span>
+  </div>
+</section>
+<section class="halde-manifesto" data-word-manifesto aria-label="بيان أثر">
+  <div class="container">
+    <span class="eyebrow">فلسفة أثر</span>
+    <h2 data-lightup-text>ليست الزخرفة مجرد رسمٍ نراه، بل ذكرى تعيش في التفاصيل، وشكلٌ من الجمال نعيد اكتشافه في كل يوم.</h2>
+  </div>
+</section>
 <section id="museum" class="scroll-museum" aria-label="رحلة بصرية بين المعابد والزخارف">
   <div class="museum-sticky">
     <div class="museum-backdrop">
@@ -854,6 +918,46 @@ async function initializeCatalog(){
   }catch(e){console.warn('Using built-in products',e)}
 }
 initializeCatalog();
+
+
+// Original scroll-driven photo expansion and split Arabic title inspired by the Halde template.
+(function(){
+  const section=document.querySelector('.halde-reveal');
+  const viewport=document.querySelector('[data-halde-viewport]');
+  const manifesto=document.querySelector('[data-word-manifesto]');
+  const statement=document.querySelector('[data-lightup-text]');
+  if(!section||!viewport||!statement)return;
+  const raw=statement.textContent.trim();
+  statement.replaceChildren(...raw.split(/\s+/).flatMap((word,index)=>{
+    const span=document.createElement('span');
+    span.className='word'+(index===9||index===15?' accent-word':'');
+    span.textContent=word;
+    return index===0?[span]:[document.createTextNode(' '),span];
+  }));
+  const words=[...statement.querySelectorAll('.word')];
+  const motion=matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp=(n)=>Math.max(0,Math.min(1,n));
+  let ticking=false;
+  function update(){
+    ticking=false;
+    if(motion.matches){viewport.style.setProperty('--expand','1');viewport.style.setProperty('--fx-progress','1');words.forEach(w=>w.classList.add('lit'));return}
+    const rect=section.getBoundingClientRect();
+    const distance=Math.max(1,rect.height-innerHeight);
+    const progress=clamp(-rect.top/distance);
+    const expanded=clamp((progress-.06)/.8);
+    viewport.style.setProperty('--expand',expanded.toFixed(4));
+    viewport.style.setProperty('--fx-progress',progress.toFixed(4));
+    const m=manifesto.getBoundingClientRect();
+    const rp=clamp((innerHeight*.82-m.top)/(m.height*.65+innerHeight*.2));
+    const count=Math.floor(rp*words.length+0.1);
+    words.forEach((w,i)=>w.classList.toggle('lit',i<count));
+  }
+  function schedule(){if(!ticking){ticking=true;requestAnimationFrame(update)}}
+  addEventListener('scroll',schedule,{passive:true});
+  addEventListener('resize',schedule,{passive:true});
+  motion.addEventListener?.('change',schedule);
+  schedule();
+})();
 
 // Scroll-driven parallax: position and opacity are derived from scroll, not timers.
 (function(){

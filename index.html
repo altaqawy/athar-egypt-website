@@ -28,7 +28,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:linear-gradient(180deg,#f7f2e8 0%,#f2ebdf 100%);color:var(--ink);font-family:var(--sans);overflow-x:clip}
+body{margin:0;background:linear-gradient(180deg,#f7f2e8 0%,#f2ebdf 100%);color:var(--ink);font-family:var(--sans);overflow-x:hidden}
 body.overlay-open{overflow:hidden}
 a{text-decoration:none;color:inherit}
 button,input{font:inherit}
@@ -416,6 +416,162 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
  .halde-caption,.halde-sequence{opacity:1!important}.halde-title span{transform:none!important}.halde-manifesto h2 .word{color:#3c2c21!important}
 }
 
+
+/* V6 — Mobile editorial art direction, not a scaled-down desktop page.
+   Inspired by mobile-first product storytelling rather than duplicating Framer templates. */
+.hero-mobile-photo-caption{display:none}
+@media(max-width:860px){
+  :root{--mobile-ink:#322920}
+  html{scroll-padding-top:80px}
+  .topbar{display:none!important}
+  .header{background:rgba(248,244,236,.96);border-bottom:1px solid #e6dac7;backdrop-filter:blur(18px)}
+  .header-inner{display:flex!important;align-items:center;justify-content:space-between;height:66px!important;gap:10px!important;padding:0 2px}
+  .brand-minimal .brand-wordmark,.header .brand-wordmark{width:66px!important;filter:none}
+  .header .nav-actions{display:flex;gap:9px!important;align-items:center}
+  .header .nav-actions>.solid-btn{display:none!important}
+  .header .ghost-btn{width:40px;height:40px;border:0;background:transparent;color:#4c3b2e;padding:9px}
+  .header .ghost-btn svg{width:21px;height:21px}
+  #openMenu{order:1}
+  #openCart{order:2}
+  .header .count{top:0;left:0;width:15px;height:15px;min-width:15px;font-size:9px}
+  #cartCount[hidden]{display:none!important}
+  .container{width:calc(100% - 38px)!important}
+  main#home{display:flex;flex-direction:column}
+  main#home>.hero{order:1}
+  main#home>#collection{order:2}
+  main#home>.halde-reveal{order:3}
+  main#home>.halde-manifesto{order:4}
+  main#home>#ornament-journey{order:5}
+  main#home>.craft-section{order:7}
+  main#home>#contact{order:10}
+  main#home>.feature-belt{display:none!important}
+  main#home>#museum,main#home>.architectural-gallery{display:none!important}
+  main#home>.section:not(#collection):not(#ornament-journey):not(.feature-belt):not(.craft-section){order:6}
+  main#home>.section:not(#collection):not(#ornament-journey):not(.feature-belt):not(.craft-section):has(.inspiration-grid){order:8}
+  .hero{padding:14px 0 28px!important;background:#f7f3eb!important}
+  .hero.pattern-bg:before{opacity:.12!important}
+  .hero-grid{display:flex!important;flex-direction:column;gap:20px!important}
+  .hero-copy,.hero-copy.reveal{order:0;padding:10px 0 0!important;min-height:0!important}
+  .hero-copy .eyebrow{font-size:10px!important;letter-spacing:.045em;margin:0 0 9px!important;color:#9d805b}
+  .hero-copy .eyebrow::before{width:23px}
+  .hero-copy h1{max-width:520px!important;font:400 clamp(32px,7.9vw,43px)/1.23 var(--serif)!important;letter-spacing:-.035em;margin:0!important;text-wrap:pretty}
+  .hero-copy p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-size:12px!important;line-height:1.9!important;max-width:520px!important;margin:9px 0 0!important;color:#806e59}
+  .hero-actions{margin-top:15px!important;display:flex;align-items:center;gap:10px!important;flex-direction:row!important}
+  .hero-actions>.solid-btn{width:auto!important;min-height:43px!important;padding:0 24px!important;font-size:12px!important;border-radius:100px}
+  .hero-actions>.outline-btn{display:none!important}
+  .hero-meta{display:none!important}
+  .hero-visual{order:1;display:block!important;width:100%;margin:0}
+  .hero-main-card{height:clamp(300px,95vw,445px)!important;min-height:0!important;width:100%;border-radius:18px!important;overflow:hidden!important;box-shadow:none!important;background:#b99c79}
+  .hero-main-card>img{height:100%;object-fit:cover!important;object-position:50% 59%}
+  .hero-main-card:after{z-index:1;background:linear-gradient(0deg,rgba(21,17,12,.75),transparent 42%)}
+  .orbit-decor,.hero-side-stack{display:none!important}
+  .hero-mobile-photo-caption{display:flex;flex-direction:column;align-items:flex-start;gap:3px;position:absolute;right:19px;bottom:19px;z-index:3;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+  .hero-mobile-photo-caption span{font-size:10px;color:#f0d5a7;letter-spacing:.02em}
+  .hero-mobile-photo-caption strong{font:400 27px/1.25 var(--serif)}
+  .hero-main-card:hover>img{transform:none}
+  .section{padding:48px 0!important}
+  .section-head{display:block;margin:0 0 23px!important}
+  .section-head h2{font-size:clamp(33px,8vw,41px)!important;margin:5px 0 8px!important;line-height:1.22}
+  .section-head p{font-size:12px;line-height:1.9;max-width:480px}
+  .section-head .eyebrow{font-size:10px}
+  /* Store discovery first: a compact horizontal filter instead of a giant panel. */
+  #collection{padding-top:25px!important}
+  #collection .collection-wrap{display:block}
+  #collection .filter-panel{top:auto;position:relative;padding:0!important;border:0;background:none;box-shadow:none;border-radius:0;margin:0 0 14px}
+  #collection .filter-panel>h3,#collection .filter-panel>p,#collection .filter-panel>div[style]{display:none!important}
+  #categoryTabs{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;margin:0;padding:0 0 3px;scroll-snap-type:x proximity}
+  #categoryTabs::-webkit-scrollbar{display:none}
+  #categoryTabs .chip-btn{flex:0 0 auto;display:inline-flex;width:auto;min-height:37px;padding:0 15px;gap:9px;border-radius:100px;font-size:11px;white-space:nowrap;scroll-snap-align:start}
+  #categoryTabs .chip-btn span:last-child{font-family:Georgia,serif;font-size:10px;opacity:.65}
+  #productsGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:11px!important}
+  #productsGrid .product{min-width:0;padding:6px;border-radius:16px;box-shadow:none}
+  #productsGrid .product:hover{transform:none}
+  #productsGrid .product-image{aspect-ratio:.86;border-radius:12px}
+  #productsGrid .product-image img{height:100%}
+  #productsGrid .product-badge{font-size:9px;top:7px;right:7px;padding:5px 7px}
+  #productsGrid .favorite{width:30px;height:30px;left:6px;top:6px}
+  #productsGrid .favorite svg{width:16px}
+  #productsGrid .quick-add{opacity:1;transform:none!important;bottom:8px;left:8px;right:8px;min-height:33px;border-radius:100px;font-size:10px;background:rgba(36,29,22,.91)}
+  #productsGrid .product-meta{padding:11px 4px 7px;display:block}
+  #productsGrid .product-title{font-size:15px;line-height:1.4;margin-bottom:3px}
+  #productsGrid .product-sub{font-size:10px;line-height:1.55;min-height:27px}
+  #productsGrid .product-price{display:block;white-space:normal;font-size:10px;padding-top:5px}
+  /* Keep the dramatic Halde reveal, but reduce scroll mileage on phones. */
+  .halde-reveal{height:138svh!important}
+  .halde-viewport{min-height:0;height:100svh}
+  .halde-kicker{top:12%;font-size:10px}
+  .halde-photo{clip-path:inset(calc((1 - var(--expand)) * 24%) calc((1 - var(--expand)) * 10%) round calc((1 - var(--expand)) * 26px))}
+  .halde-title{font-size:clamp(40px,10vw,62px)!important}
+  .halde-caption{max-width:240px}
+  .halde-manifesto{padding:52px 0 62px!important}
+  .halde-manifesto h2{font-size:clamp(30px,7.5vw,42px);line-height:1.65}
+  /* Ornament view keeps the circular motion but prioritizes the image. */
+  .motif-story{padding:50px 0!important}
+  .motif-text{padding:0!important}
+  .motif-text h2{font-size:39px!important;line-height:1.3;margin:8px 0 10px}
+  .motif-text p{font-size:12px;line-height:2;margin:0}
+  .motif-key{margin:14px 0;gap:14px}
+  .motif-hint{display:none}
+  .motif-view{width:100%;max-width:470px}
+  /* Curated editorial images: only two secondary items on a phone. */
+  .curated-layout{gap:14px}
+  .curated-large{grid-template-rows:auto auto;gap:14px}
+  .curated-large .image-card{min-height:315px!important}
+  .curated-small{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px;grid-auto-rows:200px}
+  .curated-small .textural-card{min-height:0!important;border-radius:16px}
+  .curated-small .textural-card:nth-child(n+3){display:none}
+  .curated-small .overlay-copy h3{font-size:22px}
+  .curated-small .overlay-copy{right:11px;left:11px;bottom:12px}
+  .story-card{padding:23px!important}
+  .story-card h3{font-size:32px!important}
+  .story-card p{font-size:12px;line-height:2}
+  .motif-ribbon{grid-template-columns:1fr 1fr;gap:7px}
+  .motif-ribbon div{font-size:10px;padding:10px 7px}
+  .motif-ribbon div:last-child{display:none}
+  .craft-section{padding:55px 0!important}
+  .craft-intro h2{font-size:39px!important}
+  .craft-intro p{font-size:12px}
+  .step{grid-template-columns:42px 1fr;gap:13px;padding:12px 13px;border-radius:14px}
+  .step-num{width:42px;height:42px;font-size:17px}
+  .step h3{margin:0 0 5px;font-size:17px}
+  .step p{font-size:11px;line-height:1.8}
+  .inspiration-grid{display:block}
+  .quote-card{padding:27px;border-radius:21px}
+  .quote-card h3{font-size:32px!important}
+  .quote-card p{font-size:12px}
+  .inspiration-card{display:none!important}
+  .cta-panel{padding:0 0 60px!important}
+  .cta-box{padding:28px 22px!important;border-radius:21px}
+  .cta-box h2{font-size:37px}
+  .cta-box p{font-size:12px}
+  .footer{padding:46px 0 18px}
+  .footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px;padding-bottom:25px}
+  .footer-grid>.footer-brand{grid-column:1 / -1}
+  .footer-grid>div:last-child{display:none}
+  .footer-bottom{line-height:1.7}
+  .photo-credits{display:none}
+  .mobile-nav{background:#f9f5ed;padding-top:85px}
+  .mobile-nav a{font:600 17px var(--sans);border-bottom-color:#e7dcc9}
+}
+@media(min-width:601px) and (max-width:860px){
+ #productsGrid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .hero-main-card{height:445px!important}
+ .hero-copy h1{max-width:570px!important}
+ .hero{padding-bottom:32px!important}
+}
+@media(max-width:359px){
+ .container{width:calc(100% - 28px)!important}
+ .hero-copy h1{font-size:31px!important}
+ .hero-main-card{height:315px!important}
+ #productsGrid{gap:7px!important}
+ #productsGrid .product-title{font-size:14px}
+ #productsGrid .quick-add{font-size:9px}
+ .header .brand-wordmark{width:59px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-mobile-photo-caption{transition:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -476,6 +632,7 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
       <div class="hero-visual reveal delay-1 visible">
         <div class="hero-main-card orbit-frame"><div class="orbit-decor" aria-hidden="true"><span></span><span></span><span></span></div>
           <img src="assets/mirror-pair.webp" alt="مجموعة مرايا أثر" loading="eager">
+          <div class="hero-mobile-photo-caption" aria-hidden="true"><span>من مجموعة أثر</span><strong>تفاصيل تستحق أن تبقى.</strong></div>
         </div>
         <div class="hero-side-stack">
           <div class="hero-side-card"><img src="assets/star-flower.webp" alt="قطعة زخرفية من أثر"></div>
@@ -849,7 +1006,7 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
 <div id="mobileNav" class="mobile-nav">
   <button id="closeMenu" class="menu-close" aria-label="إغلاق القائمة">×</button>
   <a href="#home">الرئيسية</a>
-  <a href="#heritage">الهوية</a>
+  <a href="#ornament-journey">الهوية</a>
   <a href="#collection">المجموعة</a>
   <a href="#craft">رحلة القطعة</a>
   <a href="#contact">تواصل</a>
@@ -871,7 +1028,7 @@ let filter='all', selected=null, cart={}, favorites=new Set(), toastTimer=null;
 const $=q=>document.querySelector(q);
 function showToast(message){const el=$('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2600)}
 const escapeHtml=(s)=>String(s??'').replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-function productCard(p){const t=escapeHtml(p.name),sub=escapeHtml(p.sub),tag=escapeHtml(p.tag),image=escapeHtml(p.image),price=escapeHtml(p.price||"السعر عند الطلب");return `<article class="product reveal"><div class="product-image"><img src="${image}" loading="lazy" alt="${t}"><span class="product-badge">${tag}</span><button class="favorite ${favorites.has(p.id)?'saved':''}" data-fav="${p.id}" aria-label="إضافة للمفضلة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 8.6c0 4.1-8.8 10-8.8 10S3.2 12.7 3.2 8.6C3.2 3.8 9 2.5 12 6.6c3-4.1 8.8-2.8 8.8 2Z"/></svg></button><button class="quick-add" data-add="${p.id}">أضف إلى قائمة الاستفسار +</button></div><div class="product-meta"><div class="product-details-link" data-detail="${p.id}" tabindex="0" role="button" aria-label="تفاصيل ${t}"><h3 class="product-title">${t}</h3><span class="product-sub">${sub}</span></div><span class="product-price">${price}</span></div></article>`}
+function productCard(p){const t=escapeHtml(p.name),sub=escapeHtml(p.sub),tag=escapeHtml(p.tag),image=escapeHtml(p.image),price=escapeHtml(p.price||"السعر عند الطلب");return `<article class="product reveal"><div class="product-image" role="button" tabindex="0" data-detail="${p.id}" aria-label="عرض ${p.name}"><img src="${image}" loading="lazy" alt="${t}"><span class="product-badge">${tag}</span><button class="favorite ${favorites.has(p.id)?'saved':''}" data-fav="${p.id}" aria-label="إضافة للمفضلة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 8.6c0 4.1-8.8 10-8.8 10S3.2 12.7 3.2 8.6C3.2 3.8 9 2.5 12 6.6c3-4.1 8.8-2.8 8.8 2Z"/></svg></button><button class="quick-add" data-add="${p.id}">استفسر عن القطعة +</button></div><div class="product-meta"><div class="product-details-link" data-detail="${p.id}" tabindex="0" role="button" aria-label="تفاصيل ${t}"><h3 class="product-title">${t}</h3><span class="product-sub">${sub}</span></div><span class="product-price">${price}</span></div></article>`}
 function renderProducts(){const items=products.filter(p=>p.visible!==false&&(filter==='all'||p.category===filter));$('#productsGrid').innerHTML=items.map(productCard).join('');observeReveals()}
 function renderCart(){const entries=Object.entries(cart), count=entries.reduce((a,[,q])=>a+q,0);$('#cartCount').textContent=count;$('#cartCount').hidden=!count;$('#cartItems').innerHTML=entries.length?entries.map(([id,q])=>{const p=products.find(x=>x.id===id);if(!p)return '';return `<div class="drawer-item"><img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}"><div><h4>${escapeHtml(p.name)}</h4><p>${escapeHtml(p.sub)}</p><div class="qty"><button data-minus="${id}" aria-label="إنقاص">−</button><span>${q}</span><button data-plus="${id}" aria-label="زيادة">+</button></div></div></div>`}).join(''):'<div class="empty-state">لم تُضَف قطع بعد.<br><span style="font-size:12px;color:#988875">ابدأ بإضافة أي قطعة تعجبك من المجموعة.</span></div>'}
 function addToCart(id){if(!products.some(p=>p.id===id))return;cart[id]=(cart[id]||0)+1;renderCart();showToast('أُضيفت القطعة إلى قائمة الاستفسار')}
@@ -884,7 +1041,7 @@ function closeAll(){closeCart(false);closeDialog(false);toggleOverlay(false)}
 $('#categoryTabs').addEventListener('click',e=>{const b=e.target.closest('[data-filter]'); if(!b) return; filter=b.dataset.filter; document.querySelectorAll('.chip-btn').forEach(x=>x.classList.toggle('active',x===b)); renderProducts()})
 $('#productsGrid').addEventListener('click',e=>{const fav=e.target.closest('[data-fav]'), add=e.target.closest('[data-add]'), det=e.target.closest('[data-detail]'); if(fav){const id=fav.dataset.fav; favorites.has(id)?favorites.delete(id):favorites.add(id); renderProducts(); showToast(favorites.has(id)?'تمت الإضافة للمفضلة':'أُزيلت من المفضلة')} else if(add) addToCart(add.dataset.add); else if(det) showDialog(det.dataset.detail);})
 $('#productsGrid').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-detail]')){e.preventDefault();showDialog(e.target.dataset.detail)}})
-$('#openCart').onclick=showCart; $('#ctaCart').onclick=showCart; $('#closeCart').onclick=()=>closeCart(); $('#closeDialog').onclick=()=>closeDialog(); $('#overlay').onclick=closeAll;
+$('#openCart').onclick=showCart; $('#ctaCart').onclick=showCart; $('#closeCart').onclick=()=>closeCart(); $('#closeDialog').onclick=()=>closeDialog(); $('#overlay').onclick=()=>{closeAll();closeMenu()};
 $('#dialogAdd').onclick=()=>{addToCart(selected.id); showCart()}
 $('#cartItems').addEventListener('click',e=>{const plus=e.target.closest('[data-plus]'), minus=e.target.closest('[data-minus]'); if(plus) cart[plus.dataset.plus]++; if(minus){cart[minus.dataset.minus]--; if(cart[minus.dataset.minus]<=0) delete cart[minus.dataset.minus]} renderCart()})
 $('#copyInquiry').onclick=async()=>{const entries=Object.entries(cart); if(!entries.length){showToast('أضف قطعة واحدة على الأقل'); return} const message='مرحبًا أثر، أود الاستفسار عن القطع التالية:\n'+entries.map(([id,q],i)=>`${i+1}- ${products.find(p=>p.id===id).name} × ${q}`).join('\n')+'\nهل يمكن معرفة الأسعار والتوفر؟'; try{await navigator.clipboard.writeText(message); showToast('تم نسخ تفاصيل الاستفسار')}catch{showToast('تعذر النسخ؛ يمكن إرسال لقطة من القائمة')}}

@@ -14,6 +14,53 @@
 @media(max-width:1024px){.layout{grid-template-columns:210px minmax(0,1fr)}.sidebar{padding:24px 12px}.overview{grid-template-columns:repeat(2,minmax(0,1fr))}.product-row{grid-template-columns:64px minmax(120px,1fr) 86px 100px;gap:9px}.product-row .product-state{display:none}}
 @media(max-width:720px){.layout{display:block}.workspace{padding:18px 14px 50px}.sidebar{height:auto;position:static;padding:12px 15px;gap:0}.sidebar .brand{border:0;padding:0}.sidebar .brand img{width:62px}.sidebar .brand small{font-size:9px}.sidebar .nav,.sidebar-bottom{display:none}.sidebar.open .nav{display:grid;margin-top:16px}.hamburger{display:inline-flex;margin-right:auto}.top{margin-top:14px}.top-title h1{font-size:34px}.top-actions{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.top-actions .btn{padding:12px 5px}.panel{padding:18px;border-radius:18px}.panel-heading h2{font-size:26px}.search-row input,.search-row select{width:100%;flex:1 1 100%}.product-row{grid-template-columns:58px minmax(80px,1fr) 80px;gap:9px;padding:8px}.product-row .product-category,.product-row .product-state{display:none}.thumb{width:58px;height:58px}.row-actions{flex-direction:column}.row-actions button{padding:5px;font-size:10px}.fields{grid-template-columns:1fr}.modal{padding:19px;max-height:95dvh}.modal-head h2{font-size:27px}.preview-card img{width:70px;height:70px}.overview{gap:10px}.metric{padding:16px}.metric strong{font-size:30px}}
 @media(max-width:360px){.product-row h3{font-size:11px}.product-row p{font-size:10px}.overview{grid-template-columns:1fr 1fr}.top-actions{grid-template-columns:1fr 1fr}}
+
+/* V8 — refined content studio, tablet/mobile friendly */
+.brand img{height:60px;object-fit:contain}
+.layout{grid-template-columns:252px minmax(0,1fr)}
+.sidebar{background:linear-gradient(165deg,#2c251e,#1d1915)}
+.top-title h1{letter-spacing:-.02em}
+.panel{box-shadow:0 12px 30px rgba(46,34,20,.045)}
+.workspace{max-width:1690px;width:100%}
+.metric{position:relative;overflow:hidden}
+.metric:after{content:'';width:112px;height:112px;border-radius:50%;border:1px solid #d8c9b58c;position:absolute;top:-64px;left:-31px}
+.admin-status{display:inline-flex;align-items:center;gap:8px;background:#e7e1d5;color:#655443;font-size:11px;font-weight:800;padding:10px 14px;border-radius:999px;border:1px solid #d9cdbb}
+.admin-status:before{content:'';width:8px;height:8px;border-radius:50%;background:#a78a63;box-shadow:0 0 0 3px #a78a6325}
+.admin-status.pending{background:#fff4e1;color:#7d572a;border-color:#e6c99d}
+.admin-status.pending:before{background:#c88d47}
+.admin-status.saved{background:#eaf3e9;color:#426340;border-color:#c9ddc6}
+.admin-status.saved:before{background:#6b9b68}
+.dashboard-hero{border-radius:26px;background:radial-gradient(circle at 92% 45%,#94714c55,transparent 33%),linear-gradient(112deg,#342a21,#201b17);color:#f6e8d3;display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px;padding:30px 34px;margin-bottom:22px;position:relative;overflow:hidden}
+.dashboard-hero:before{content:'';height:220px;width:220px;border:1px solid #cfab7744;border-radius:50%;position:absolute;left:-72px;bottom:-120px;box-shadow:0 0 0 34px #cfab7715,0 0 0 68px #cfab770c}
+.dashboard-hero h2{font:400 34px/1.35 var(--serif);margin:6px 0}
+.dashboard-hero p{font-size:12px;color:#d5c1a7;line-height:2;max-width:600px;margin:0}
+.dashboard-hero .action-set{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end}
+.dashboard-hero .btn{background:#f2e3cd;border-color:#f2e3cd;color:#2e261e}
+.dashboard-hero .btn.secondary{background:#ffffff14;border-color:#ffffff3a;color:#fff}
+.admin-muted{font-size:12px;color:#877866;line-height:2}
+.product-row{grid-template-columns:72px minmax(180px,1fr) 100px 100px minmax(190px,auto)}
+.product-row .row-actions{flex-wrap:wrap;justify-content:flex-end}
+.product-row .row-actions button{min-width:33px}
+.row-actions button:focus-visible,.btn:focus-visible,.nav button:focus-visible,.chip:focus-visible{outline:3px solid #b99768;outline-offset:2px}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:15px}
+.media-tile{background:#fff;border:1px solid var(--edge);border-radius:18px;padding:9px;text-align:right;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.media-tile:hover{transform:translateY(-4px);box-shadow:0 15px 28px #34261914}
+.media-tile img{aspect-ratio:1;object-fit:cover;border-radius:12px;background:#eee4d6}
+.media-tile strong{display:block;font-size:12px;margin-top:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.media-tile span{font-size:10px;color:#897864}
+.settings-preview{display:flex;align-items:center;gap:16px;background:linear-gradient(105deg,#f2e8d8,#fcf9f3);border:1px solid #e7d8c0;border-radius:18px;padding:18px;margin:8px 0 20px}
+.settings-preview img{width:72px;height:65px;object-fit:contain;flex:none}
+.settings-preview strong{display:block;font:700 20px var(--serif)}
+.settings-preview p{margin:0;font-size:11px;line-height:1.9;color:#877664}
+.switch-field{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;border-radius:14px;background:#f8f0e4;border:1px solid #e9decf;margin-bottom:14px}
+.switch-field input{width:21px;height:21px;accent-color:#94704b;cursor:pointer}
+.switch-field strong{display:block;font-size:13px}
+.switch-field small{font-size:11px;color:#82715d;line-height:1.8}
+.preview-link{color:#a27946;text-decoration:underline;font-weight:800}
+@media(max-width:1120px){.product-row{grid-template-columns:66px minmax(140px,1fr) 90px minmax(130px,auto)}.product-row .product-state{display:none}.dashboard-hero{grid-template-columns:1fr}}
+@media(max-width:820px){.layout{grid-template-columns:190px minmax(0,1fr)}.sidebar{padding:20px 12px}.workspace{padding:20px 14px 48px}.product-row{grid-template-columns:58px minmax(120px,1fr) minmax(112px,auto)}.product-row .product-category{display:none}.top-actions{gap:6px}}
+@media(max-width:720px){.layout{display:block}.sidebar{position:sticky;top:0;height:auto;z-index:45;padding:10px 14px;box-shadow:0 4px 20px #19130d20}.sidebar .brand{justify-content:space-between}.sidebar .brand img{height:45px;width:65px}.sidebar .brand strong{font-size:12px}.sidebar .nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.nav button{font-size:11px;padding:11px 9px}.workspace{padding:19px 13px 50px}.top{align-items:flex-start;margin:4px 0 17px}.top-title h1{font-size:32px}.top-actions{display:flex;width:100%}.top-actions .btn{flex:1;white-space:nowrap}.dashboard-hero{padding:25px 20px;gap:18px}.dashboard-hero h2{font-size:29px}.dashboard-hero .action-set{justify-content:stretch;display:grid;grid-template-columns:1fr 1fr}.dashboard-hero .btn{padding:11px 7px}.product-row{grid-template-columns:54px minmax(0,1fr);position:relative;gap:10px;padding:10px}.product-row .row-actions{grid-column:1/-1;justify-content:flex-start;border-top:1px solid #e7ddcb;padding-top:9px}.product-row .row-actions button{flex:1;padding:7px 5px}.product-row h3{font-size:13px}.media-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.settings-preview img{width:56px;height:56px}}
+@media(max-width:360px){.top-actions{display:grid;grid-template-columns:1fr 1fr}.dashboard-hero .action-set{grid-template-columns:1fr}.overview{grid-template-columns:1fr 1fr}.nav button{font-size:10px}}
 </style>
 </head>
 <body>
@@ -23,6 +70,7 @@
   <nav class="nav" id="sideNav">
     <button type="button" class="active" data-view="overview">◈ لوحة المعلومات</button>
     <button type="button" data-view="products">◉ إدارة المنتجات</button>
+    <button type="button" data-view="media">▣ مكتبة الصور</button>
     <button type="button" data-view="content">✎ محتوى الصفحة</button>
     <button type="button" data-view="publish">↥ النشر والنسخ</button>
   </nav>
@@ -30,12 +78,17 @@
 </aside>
 <div class="workspace">
   <header class="top">
-    <div class="top-title"><h1>إدارة موقع أثر</h1><p>المنتجات والمحتوى والصور في مكان واحد</p></div>
+    <div class="top-title"><h1>إدارة موقع أثر</h1><p>المنتجات والمحتوى والصور في مكان واحد</p></div><span id="draftStatus" class="admin-status" role="status">جاري قراءة البيانات…</span>
     <div class="top-actions"><a class="btn" href="index.html?preview=1" target="_blank" rel="noopener">↗ معاينة التعديلات</a><button class="btn primary" id="downloadTop" type="button">↓ تصدير للنشر</button></div>
   </header>
-  <div class="notice"><strong>تنبيه مهم: وضع الإدارة المحلي</strong>أي تعديل هنا يُحفظ على جهازك في هذا المتصفح فقط، ولا يُنشر تلقائيًا للزوار. لتحديث النسخة العامة، صدّر ملف <b>catalog.json</b> وارفعه إلى جذر مستودع GitHub، أو أرسله هنا لرفعه. الموقع الثابت لا يوفّر تسجيل دخول آمنًا أو قاعدة بيانات مشتركة؛ لذلك لا تُدخل بيانات عملاء حساسة هنا.</div>
+  <div class="notice"><strong>نسخة تحرير محلية — وليست لوحة دخول خاصة</strong>التعديلات تُحفظ على جهازك فقط؛ لن يراها الزوار قبل رفع <b>catalog.json</b> إلى GitHub. <button class="btn" type="button" data-view="publish" style="padding:5px 12px;margin-inline-start:8px">طريقة النشر ↗</button></div>
 
   <section class="view active" id="view-overview">
+    <div class="dashboard-hero">
+      <div><span style="font-size:10px;letter-spacing:.12em;color:#d8b98a">مركز إدارة أثر</span><h2>كل القطع، وكل حكاية… في مكان واحد.</h2><p>عدّل الصور والمحتوى، عاين النتيجة على جهازك، ثم صدّر ملف الكتالوج للنشر على GitHub.</p></div>
+      <div class="action-set"><button class="btn" data-view="products" type="button">إدارة القطع</button><a class="btn secondary" href="index.html?preview=1" target="_blank" rel="noopener">معاينة المسودة ↗</a></div>
+    </div>
+
     <div class="overview" id="metrics"></div>
     <div class="panel"><div class="panel-heading"><div><h2>المجموعة الحالية</h2><p>نظرة سريعة على القطع التي يمكنك تعديلها</p></div><button class="btn primary" data-view="products">إدارة المجموعة</button></div><div id="overviewProducts" class="product-table"></div></div>
     <div class="panel"><div class="panel-heading"><h2>مساحة إدارة مرنة</h2></div><div class="preview-card"><img src="assets/logo-transparent.png" alt="أثر"><div><strong>من أثر… إلى العالم</strong><p>عدّل البيانات محليًا، اختبرها في المعاينة، ثم صدّر ملف النشر ليظهر التعديل لجميع الزوار بعد رفعه.</p></div></div></div>
@@ -43,8 +96,15 @@
 
   <section class="view" id="view-products">
     <div class="panel"><div class="panel-heading"><div><h2>المنتجات</h2><p>أضف أو عدّل أو أخفِ القطع، وغيّر الصور والأسعار والتصنيف</p></div><button class="btn primary" id="addProduct" type="button">+ منتج جديد</button></div>
-      <div class="search-row"><input id="search" placeholder="ابحث باسم القطعة أو وصفها…" aria-label="البحث في المنتجات"><select id="filterCategory"><option value="all">كل الفئات</option><option value="mirror">المرايا</option><option value="ornament">الزخارف</option><option value="frame">الإطارات</option></select></div><div id="productRows" class="product-table"></div>
+      <div class="search-row"><input id="search" placeholder="ابحث باسم القطعة أو وصفها…" aria-label="البحث في المنتجات"><select id="filterCategory"><option value="all">كل الفئات</option><option value="mirror">المرايا</option><option value="ornament">الزخارف</option><option value="frame">الإطارات</option></select><select id="filterVisible" aria-label="تصفية الحالة"><option value="all">الظاهرة والمخفية</option><option value="visible">المنتجات الظاهرة</option><option value="hidden">المنتجات المخفية</option></select></div><div id="productRows" class="product-table"></div>
     </div>
+  </section>
+
+  <section class="view" id="view-media">
+    <div class="panel"><div class="panel-heading"><div><h2>مكتبة الصور</h2><p>كل صور القطع المرتبطة بالكتالوج. اضغط على أي صورة لتعديل القطعة.</p></div><button class="btn primary" type="button" data-view="products">إدارة المنتجات</button></div>
+      <div class="media-grid" id="mediaGrid"></div>
+    </div>
+    <div class="notice"><strong>طريقة رفع الصور</strong>لتغيير صورة قطعة، افتح تعديل المنتج واختر الصورة من جهازك. تُحفظ مع المسودة وتُصدَّر داخل ملف البيانات عند النشر.</div>
   </section>
 
   <section class="view" id="view-content">
@@ -54,7 +114,12 @@
       <div class="field full"><label for="sIntro">الوصف أسفل العنوان</label><textarea id="sIntro" required maxlength="600"></textarea></div>
       <div class="field"><label for="sEyebrow">النص الصغير أعلى العنوان</label><input id="sEyebrow" maxlength="80"></div>
       <div class="field"><label for="sInstagram">حساب إنستجرام</label><input id="sInstagram" type="url" placeholder="https://www.instagram.com/atharegypt/"></div>
-      </div><button class="btn primary" type="submit">حفظ المحتوى</button></form>
+      </div>
+      <div class="panel-heading" style="margin-top:18px"><div><h2 style="font-size:24px">مقدمة تحميل الموقع</h2><p>تأثير دائري هادئ بشعار «أثر» يسبق ظهور الصفحة</p></div></div>
+      <div class="settings-preview"><img src="assets/logo-transparent.png" alt="شعار أثر"><div><strong>أثرٌ يبقى</strong><p>دوائر زخرفية تتحرك حول الشعار، مع ظهور تدريجي للنص وشريط تقدّم</p></div></div>
+      <label class="switch-field" for="sIntroEnabled"><span><strong>تشغيل أنيميشن الافتتاح</strong><small>يمكن إيقافه للزوار؛ وعند تفضيل تقليل الحركة يُلغى تلقائيًا.</small></span><input type="checkbox" id="sIntroEnabled" checked></label>
+      <div class="field"><label for="sIntroDuration">مدة الظهور</label><select id="sIntroDuration"><option value="1100">سريع — 1.1 ثانية</option><option value="1600">متوازن — 1.6 ثانية</option><option value="2300">هادئ — 2.3 ثانية</option></select></div>
+      <div class="toolbar" style="margin-top:20px"><button class="btn primary" type="submit">حفظ الإعدادات</button><button class="btn" type="button" id="previewIntro">معاينة الأنيميشن ↗</button></div></form>
     </div>
   </section>
 
@@ -98,25 +163,44 @@ const categories={mirror:'المرايا',ornament:'الزخارف',frame:'ال�
 const validImage=v=>typeof v==='string'&&(/^assets\/[\w.-]+$/.test(v)||/^data:image\/(webp|png|jpeg);base64,[A-Za-z0-9+/=]+$/.test(v)||/^https:\/\//.test(v));
 let catalog={version:1,products:[],settings:{}};let published=null;let editorImage='';let timer;
 function toast(msg){$('#toast').textContent=msg;$('#toast').classList.add('show');clearTimeout(timer);timer=setTimeout(()=>$('#toast').classList.remove('show'),2600)}
-function normalize(raw){if(!raw||!Array.isArray(raw.products))throw Error('Invalid catalog');const seen=new Set();return {version:1,settings:{heroTitle:String(raw.settings?.heroTitle??''),heroDescription:String(raw.settings?.heroDescription??''),heroEyebrow:String(raw.settings?.heroEyebrow??''),instagram:String(raw.settings?.instagram??'')},products:raw.products.filter(p=>p&&p.id&&p.name).map(p=>({id:String(p.id).slice(0,60),name:String(p.name).slice(0,120),category:categories[p.category]?p.category:'ornament',sub:String(p.sub??'').slice(0,170),image:validImage(p.image)?p.image:'assets/round-rosette.webp',tag:String(p.tag??'').slice(0,60),desc:String(p.desc??'').slice(0,900),price:String(p.price??'').slice(0,40),visible:p.visible!==false})).filter(p=>!seen.has(p.id)&&seen.add(p.id))}}
+function normalize(raw){if(!raw||!Array.isArray(raw.products))throw Error('Invalid catalog');const seen=new Set();return {version:1,settings:{heroTitle:String(raw.settings?.heroTitle??''),heroDescription:String(raw.settings?.heroDescription??''),heroEyebrow:String(raw.settings?.heroEyebrow??''),instagram:String(raw.settings?.instagram??''),introEnabled:raw.settings?.introEnabled!==false,introDuration:[1100,1600,2300].includes(Number(raw.settings?.introDuration))?Number(raw.settings.introDuration):1600},products:raw.products.filter(p=>p&&p.id&&p.name).map(p=>({id:String(p.id).slice(0,60),name:String(p.name).slice(0,120),category:categories[p.category]?p.category:'ornament',sub:String(p.sub??'').slice(0,170),image:validImage(p.image)?p.image:'assets/round-rosette.webp',tag:String(p.tag??'').slice(0,60),desc:String(p.desc??'').slice(0,900),price:String(p.price??'').slice(0,40),visible:p.visible!==false})).filter(p=>!seen.has(p.id)&&seen.add(p.id))}}
 function save(){try{localStorage.setItem(DRAFT_KEY,JSON.stringify(catalog));return true}catch(e){toast('التخزين المحلي ممتلئ: صدّر نسخة، أو استخدم صورًا أصغر.');return false}}
-function sync(){renderMetrics();renderProducts();fillSettings()}
+function sync(){renderMetrics();renderProducts();renderMedia();fillSettings();renderDraftStatus()}
 async function init(){try{published=normalize(await (await fetch('catalog.json',{cache:'no-store'})).json());}catch{published={version:1,products:[],settings:{}}}try{const saved=localStorage.getItem(DRAFT_KEY);catalog=saved?normalize(JSON.parse(saved)):structuredClone(published)}catch{catalog=structuredClone(published)}sync()}
+function renderDraftStatus(){
+  const el=$('#draftStatus');if(!el)return;
+  if(!published){el.textContent='تعذر قراءة النسخة المنشورة';el.className='admin-status pending';return;}
+  const changed=JSON.stringify(catalog)!==JSON.stringify(published);
+  el.textContent=changed?'تعديلات محلية لم تُنشر':'مطابق للكتالوج المنشور';
+  el.className='admin-status '+(changed?'pending':'saved');
+}
+function renderMedia(){
+  const grid=$('#mediaGrid');if(!grid)return;
+  grid.innerHTML=catalog.products.map(p=>`<button type="button" class="media-tile" data-edit="${escape(p.id)}"><img src="${escape(p.image)}" loading="lazy" alt="${escape(p.name)}"><strong>${escape(p.name)}</strong><span>${escape(categories[p.category])} · ${p.visible?'ظاهر':'مخفي'}</span></button>`).join('')||'<div class="empty">لا توجد صور بعد.</div>';
+}
 function activate(v){document.querySelectorAll('.view').forEach(el=>el.classList.toggle('active',el.id==='view-'+v));document.querySelectorAll('[data-view]').forEach(el=>el.classList.toggle('active',el.dataset.view===v));$('#sidebar').classList.remove('open');scrollTo({top:0,behavior:'smooth'})}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(b)activate(b.dataset.view)});
 $('#toggleNav').onclick=()=>$('#sidebar').classList.toggle('open');
-function renderMetrics(){const active=catalog.products.filter(p=>p.visible).length;const counts=[['كل القطع',catalog.products.length,'المنتجات المسجلة'],['منشور',active,'الظاهر في المعاينة'],['المرايا',catalog.products.filter(p=>p.category==='mirror').length,'قطع دائرية ومرايا'],['الزخارف',catalog.products.filter(p=>p.category==='ornament').length,'أعمال هندسية']];$('#metrics').innerHTML=counts.map(([label,num,sub])=>`<div class="metric"><div class="k">${label}</div><strong>${num}</strong><span>${sub}</span></div>`).join('');$('#overviewProducts').innerHTML=catalog.products.slice(0,3).map(p=>rowHtml(p)).join('')||'<div class="empty">لم تُضَف منتجات بعد.</div>'}
-function rowHtml(p){return `<article class="product-row"><img class="thumb" src="${escape(p.image)}" alt="${escape(p.name)}"><div><h3>${escape(p.name)}</h3><p>${escape(p.price||'السعر عند الطلب')}</p></div><span class="pill product-category">${categories[p.category]}</span><span class="pill product-state ${p.visible?'':'hidden'}">${p.visible?'ظاهر':'مخفي'}</span><div class="row-actions"><button type="button" data-edit="${escape(p.id)}">تعديل</button><button class="danger" type="button" data-delete="${escape(p.id)}">حذف</button></div></article>`}
-function renderProducts(){const q=$('#search').value.trim().toLowerCase(),category=$('#filterCategory').value;const filtered=catalog.products.filter(p=>(category==='all'||p.category===category)&&(`${p.name} ${p.sub} ${p.desc}`.toLowerCase().includes(q)));$('#productRows').innerHTML=filtered.map(rowHtml).join('')||'<div class="empty">لا توجد منتجات مطابقة. جرّب البحث عن اسم مختلف أو أضف منتجًا جديدًا.</div>'}
-$('#search').oninput=renderProducts;$('#filterCategory').onchange=renderProducts;
-document.addEventListener('click',e=>{const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');if(edit)openEditor(edit.dataset.edit);if(del){const p=catalog.products.find(p=>p.id===del.dataset.delete);if(p&&confirm(`هل تريد حذف «${p.name}» من المسودة المحلية؟`)){catalog.products=catalog.products.filter(x=>x.id!==p.id);if(save()){sync();toast('تم حذف المنتج من المسودة')}}}});
+function renderMetrics(){const active=catalog.products.filter(p=>p.visible).length;const counts=[['كل القطع',catalog.products.length,'المنتجات المسجلة'],['ظاهر',active,'الظاهر في المسودة'],['المرايا',catalog.products.filter(p=>p.category==='mirror').length,'قطع دائرية ومرايا'],['الزخارف',catalog.products.filter(p=>p.category==='ornament').length,'أعمال هندسية']];$('#metrics').innerHTML=counts.map(([label,num,sub])=>`<div class="metric"><div class="k">${label}</div><strong>${num}</strong><span>${sub}</span></div>`).join('');$('#overviewProducts').innerHTML=catalog.products.slice(0,3).map(p=>rowHtml(p)).join('')||'<div class="empty">لم تُضَف منتجات بعد.</div>'}
+function rowHtml(p){return `<article class="product-row"><img class="thumb" src="${escape(p.image)}" alt="${escape(p.name)}"><div><h3>${escape(p.name)}</h3><p>${escape(p.price||'السعر عند الطلب')}</p></div><span class="pill product-category">${categories[p.category]}</span><span class="pill product-state ${p.visible?'':'hidden'}">${p.visible?'ظاهر':'مخفي'}</span><div class="row-actions"><button type="button" data-edit="${escape(p.id)}">تعديل</button><button type="button" data-toggle="${escape(p.id)}">${p.visible?"إخفاء":"إظهار"}</button><button type="button" data-move="${escape(p.id)}" data-direction="-1" aria-label="تحريك لأعلى">↑</button><button type="button" data-move="${escape(p.id)}" data-direction="1" aria-label="تحريك لأسفل">↓</button><button class="danger" type="button" data-delete="${escape(p.id)}">حذف</button></div></article>`}
+function renderProducts(){const q=$('#search').value.trim().toLowerCase(),category=$('#filterCategory').value;const state=$('#filterVisible').value;const filtered=catalog.products.filter(p=>(category==='all'||p.category===category)&&(state==='all'||(state==='visible'?p.visible:p.visible===false))&&(`${p.name} ${p.sub} ${p.desc}`.toLowerCase().includes(q)));$('#productRows').innerHTML=filtered.map(rowHtml).join('')||'<div class="empty">لا توجد منتجات مطابقة. جرّب البحث عن اسم مختلف أو أضف منتجًا جديدًا.</div>'}
+$('#search').oninput=renderProducts;$('#filterCategory').onchange=renderProducts;$('#filterVisible').onchange=renderProducts;
+document.addEventListener('click',e=>{
+  const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]'),toggle=e.target.closest('[data-toggle]'),move=e.target.closest('[data-move]');
+  if(edit){openEditor(edit.dataset.edit);return}
+  if(toggle){const p=catalog.products.find(p=>p.id===toggle.dataset.toggle);if(p){p.visible=!p.visible;if(save()){sync();toast(p.visible?'القطعة ظاهرة في المسودة':'تم إخفاء القطعة في المسودة')}}return}
+  if(move){const i=catalog.products.findIndex(p=>p.id===move.dataset.move);const j=i+Number(move.dataset.direction);if(i>=0&&j>=0&&j<catalog.products.length){[catalog.products[i],catalog.products[j]]=[catalog.products[j],catalog.products[i]];if(save()){sync();toast('تم تعديل ترتيب القطع')}}return}
+  if(del){const p=catalog.products.find(p=>p.id===del.dataset.delete);if(p&&confirm(`هل تريد حذف «${p.name}» من المسودة المحلية؟`)){catalog.products=catalog.products.filter(x=>x.id!==p.id);if(save()){sync();toast('تم حذف المنتج من المسودة')}}}
+});
+
 function openEditor(id=null){const p=catalog.products.find(x=>x.id===id);$('#editorTitle').textContent=p?'تعديل المنتج':'إضافة منتج';$('#pId').value=p?.id||'';$('#pName').value=p?.name||'';$('#pCategory').value=p?.category||'ornament';$('#pPrice').value=p?.price||'';$('#pTag').value=p?.tag||'';$('#pSub').value=p?.sub||'';$('#pDesc').value=p?.desc||'';$('#pVisible').checked=p?.visible!==false;editorImage=p?.image||'assets/round-rosette.webp';$('#pPreview').src=editorImage;$('#pImage').value='';$('#overlay').classList.add('show');$('#editor').classList.add('show');document.body.style.overflow='hidden';$('#pName').focus()}
 function closeEditor(){$('#overlay').classList.remove('show');$('#editor').classList.remove('show');document.body.style.overflow=''}
 $('#addProduct').onclick=()=>openEditor();$('#closeEditor').onclick=closeEditor;$('#cancelEditor').onclick=closeEditor;$('#overlay').onclick=closeEditor;document.addEventListener('keydown',e=>{if(e.key==='Escape')closeEditor()});
 $('#pImage').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;if(!['image/jpeg','image/png','image/webp'].includes(f.type)||f.size>15e6){toast('اختر صورة JPG أو PNG أو WebP أقل من 15MB');return}try{const bmp=await createImageBitmap(f);const scale=Math.min(1,760/Math.max(bmp.width,bmp.height));const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(bmp.width*scale));canvas.height=Math.max(1,Math.round(bmp.height*scale));canvas.getContext('2d').drawImage(bmp,0,0,canvas.width,canvas.height);editorImage=canvas.toDataURL('image/webp',.78);$('#pPreview').src=editorImage;toast('الصورة جاهزة للحفظ')}catch(e){toast('تعذر قراءة الصورة')}};
 $('#productForm').onsubmit=e=>{e.preventDefault();const id=$('#pId').value||'item-'+Date.now().toString(36);const p={id,name:$('#pName').value.trim(),category:$('#pCategory').value,price:$('#pPrice').value.trim(),tag:$('#pTag').value.trim(),sub:$('#pSub').value.trim(),desc:$('#pDesc').value.trim(),visible:$('#pVisible').checked,image:editorImage};if(!p.name)return;const previous=structuredClone(catalog);const index=catalog.products.findIndex(x=>x.id===id);if(index>=0)catalog.products[index]=p;else catalog.products.unshift(p);if(save()){closeEditor();sync();toast('تم حفظ المنتج في المسودة المحلية')}else catalog=previous};
-function fillSettings(){const s=catalog.settings||{};$('#sTitle').value=s.heroTitle||'';$('#sIntro').value=s.heroDescription||'';$('#sEyebrow').value=s.heroEyebrow||'';$('#sInstagram').value=s.instagram||''}
-$('#settingsForm').onsubmit=e=>{e.preventDefault();const url=$('#sInstagram').value.trim();if(url&&!/^https:\/\/(www\.)?instagram\.com\//i.test(url)){toast('استخدم رابط Instagram صحيحًا');return}catalog.settings={heroTitle:$('#sTitle').value.trim(),heroDescription:$('#sIntro').value.trim(),heroEyebrow:$('#sEyebrow').value.trim(),instagram:url};if(save())toast('تم حفظ محتوى الصفحة محليًا')};
+function fillSettings(){const s=catalog.settings||{};$('#sTitle').value=s.heroTitle||'';$('#sIntro').value=s.heroDescription||'';$('#sEyebrow').value=s.heroEyebrow||'';$('#sInstagram').value=s.instagram||'';$('#sIntroEnabled').checked=s.introEnabled!==false;$('#sIntroDuration').value=String(s.introDuration||1600)}
+$('#previewIntro').onclick=()=>{window.open('index.html?preview=1&introPreview=1','_blank','noopener')};
+$('#settingsForm').onsubmit=e=>{e.preventDefault();const url=$('#sInstagram').value.trim();if(url&&!/^https:\/\/(www\.)?instagram\.com\//i.test(url)){toast('استخدم رابط Instagram صحيحًا');return}catalog.settings={heroTitle:$('#sTitle').value.trim(),heroDescription:$('#sIntro').value.trim(),heroEyebrow:$('#sEyebrow').value.trim(),instagram:url,introEnabled:$('#sIntroEnabled').checked,introDuration:Number($('#sIntroDuration').value)};if(save()){renderDraftStatus();toast('تم حفظ محتوى الصفحة وإعدادات الافتتاح محليًا')} };
 function exportFile(){const contents=JSON.stringify(catalog,null,2);const blob=new Blob([contents],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='catalog.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast('تم تجهيز ملف catalog.json للنشر')}
 $('#exportCatalog').onclick=exportFile;$('#downloadTop').onclick=exportFile;
 $('#importCatalog').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;if(file.size>9e6){toast('الملف كبير جدًا');return}try{const loaded=normalize(JSON.parse(await file.text()));const backup=structuredClone(catalog);catalog=loaded;if(!save()){catalog=backup;return}sync();toast('تم استيراد المسودة بنجاح')}catch{toast('الملف غير صالح أو غير متوافق')}e.target.value=''};

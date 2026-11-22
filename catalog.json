@@ -4,7 +4,9 @@
     "heroTitle": "من روحِ التراث إلى تفاصيلِ بيتِ اليوم.",
     "heroDescription": "لا نعرض منتجًا فقط؛ بل نُقدِّم حضورًا بصريًا دافئًا، مستمدًا من الزخارف التاريخية واللمسات اليدوية والمواد التي تمنح القطعة طابعًا خالدًا.",
     "heroEyebrow": "روح تراثية",
-    "instagram": "https://www.instagram.com/atharegypt/"
+    "instagram": "https://www.instagram.com/atharegypt/",
+    "introEnabled": true,
+    "introDuration": 1600
   },
   "products": [
     {

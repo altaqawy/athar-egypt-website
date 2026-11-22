@@ -573,7 +573,6 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
 }
 
 
-@media(max-width:767px){body{overflow-x:clip!important;overflow-y:visible!important}}
 /* V7: Three real scroll states — photograph -> transparent ornament -> transparent gold piece. */
 .motif-story-v7{background:#f5eee2!important;overflow:visible!important;padding:0!important;position:relative;isolation:isolate}
 .motif-intro-v7{padding:clamp(55px,7vw,110px) 0 30px;display:flex;align-items:flex-end;justify-content:space-between;gap:30px}
@@ -642,9 +641,83 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
  .motif-stage-layout{min-height:510px}
 }
 
+
+/* ATHAR — calm circular opening animation, designed for heritage brand. */
+.site-loader{display:none}
+html.athar-js .site-loader{position:fixed;z-index:9999;inset:0;display:grid;place-items:center;overflow:hidden;isolation:isolate;background:#f5efe4;color:#2b241e;opacity:1;visibility:visible;transition:opacity .65s cubic-bezier(.2,.7,.3,1),visibility .65s;}
+.site-loader.is-done{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+.site-loader::before{content:"";position:absolute;width:min(120vw,900px);aspect-ratio:1;border-radius:50%;border:1px solid #c6ab832e;box-shadow:0 0 0 60px #ceb78f13,0 0 0 135px #ceb78f10,0 0 0 220px #ceb78f08;animation:loaderBreath 4s ease-in-out infinite}
+.site-loader::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 48% 49%,transparent 12%,#eadac93d 68%,#dbcbb43b 100%);pointer-events:none}
+.loader-content{position:relative;z-index:1;text-align:center;display:flex;align-items:center;flex-direction:column;gap:0;padding:30px 16px;min-width:min(100%,320px)}
+.loader-assembly{height:230px;width:230px;position:relative;display:grid;place-items:center}
+.loader-orbit,.loader-orbit-inner{position:absolute;inset:7px;border-radius:50%;border:1px solid #c5a87985;animation:loaderSpin 10s linear infinite}
+.loader-orbit:before{content:"";position:absolute;top:-5px;left:50%;width:10px;height:10px;background:#af8b58;border:3px solid #f5efe4;border-radius:50%;transform:translateX(-50%)}
+.loader-orbit-inner{inset:33px;border-style:dashed;border-color:#bc996a80;animation:loaderSpin 14s linear infinite reverse}
+.loader-rosette{position:absolute;inset:0;width:100%;height:100%;animation:loaderSpin 20s linear infinite;opacity:.66}
+.loader-wordmark{position:relative;z-index:2;width:138px;max-height:100px;height:auto;object-fit:contain;animation:loaderLogoIn 1.1s cubic-bezier(.2,.8,.2,1) both;filter:drop-shadow(0 10px 16px #65503e16)}
+.loader-kicker{margin:8px 0 5px;font-size:11px;font-weight:700;color:#9f7b4f;letter-spacing:.03em;animation:loaderLift 1.2s .25s both}
+.loader-headline{font:400 clamp(28px,4vw,37px)/1.4 var(--serif);margin:0;animation:loaderLift 1.2s .45s both}
+.loader-rule{height:2px;width:min(250px,60vw);background:#e4d3b8;overflow:hidden;position:relative;border-radius:999px;margin-top:27px}
+.loader-rule:before{content:"";height:100%;width:100%;background:linear-gradient(90deg,#d5b77e,#967147);display:block;transform:scaleX(0);transform-origin:right;animation:loaderProgress var(--loader-duration,1.6s) ease-out forwards}
+.loader-skip{border:0;background:none;color:#816b53;font:700 11px var(--sans);margin-top:17px;padding:10px 22px;border-radius:50px;position:relative;z-index:2;cursor:pointer}
+.loader-skip:hover{background:#e9decb}
+html.athar-js body.athar-intro-active{overflow:hidden}
+@keyframes loaderSpin{to{transform:rotate(360deg)}}
+@keyframes loaderBreath{50%{transform:scale(1.075)}}
+@keyframes loaderLogoIn{from{transform:scale(.74) rotate(-13deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+@keyframes loaderLift{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes loaderProgress{to{transform:scaleX(1)}}
+@media(max-width:580px){.loader-assembly{width:185px;height:185px}.loader-orbit-inner{inset:29px}.loader-wordmark{width:120px}.loader-headline{font-size:29px}}
+@media(prefers-reduced-motion:reduce){.site-loader,.site-loader *{animation:none!important;transition:none!important}.loader-rule:before{transform:scaleX(1)}}
 </style>
+<script>document.documentElement.classList.add("athar-js");</script>
 </head>
 <body>
+
+<div id="siteLoader" class="site-loader" aria-label="جاري فتح موقع أثر" aria-live="polite" role="status" style="--loader-duration:1.6s">
+  <div class="loader-content">
+    <div class="loader-assembly" aria-hidden="true">
+      <svg class="loader-rosette" viewBox="0 0 230 230" fill="none" stroke="#bc9762" stroke-width=".65" aria-hidden="true"><circle cx="115" cy="115" r="109"/><circle cx="115" cy="115" r="80"/><path d="M115 12 Q177 115 115 218 Q53 115 115 12Z"/><path d="M12 115 Q115 53 218 115 Q115 177 12 115Z"/><path d="M42 42 Q168 70 188 188 Q64 160 42 42Z"/><path d="M188 42 Q160 168 42 188 Q70 64 188 42Z"/></svg>
+      <div class="loader-orbit"></div><div class="loader-orbit-inner"></div>
+      <img class="loader-wordmark" src="assets/logo-transparent.png" alt="" fetchpriority="high">
+    </div>
+    <p class="loader-kicker">النقش يصير حكاية</p>
+    <p class="loader-headline">أثرٌ يبقى</p>
+    <span class="loader-rule" aria-hidden="true"></span>
+    <button id="skipSiteLoader" class="loader-skip" type="button" aria-label="تخطي الحركة الافتتاحية">تخطي المقدمة</button>
+  </div>
+</div>
+<script>
+(function(){
+  const loader=document.getElementById('siteLoader');
+  const skip=document.getElementById('skipSiteLoader');
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const forcePreview=new URLSearchParams(location.search).has('introPreview');
+  let complete=false,loadReady=false,start=performance.now(),delay=1600;
+  if(!loader)return;
+  document.body.classList.add('athar-intro-active');
+  function dismiss(){
+    if(complete)return;
+    complete=true;
+    loader.classList.add('is-done');
+    document.body.classList.remove('athar-intro-active');
+    setTimeout(()=>loader.remove(),700);
+  }
+  function finishIfReady(){if(!loadReady)return;setTimeout(dismiss,Math.max(0,delay-(performance.now()-start)));}
+  window.__atharLoader={dismiss,setConfig:function(settings){
+    if(settings?.introEnabled===false&&!forcePreview){dismiss();return;}
+    const next=Number(settings?.introDuration);
+    if([1100,1600,2300].includes(next)){delay=next;loader.style.setProperty('--loader-duration',next+'ms');finishIfReady();}
+  }};
+  skip.addEventListener('click',dismiss);
+  if(reduced){dismiss();return;}
+  if(document.readyState==='complete'){loadReady=true;finishIfReady()}
+  else window.addEventListener('load',()=>{loadReady=true;finishIfReady()},{once:true});
+  window.addEventListener('pageshow',e=>{if(e.persisted)dismiss()});
+  setTimeout(dismiss,4200); // Never block the site on an external resource.
+})();
+</script>
+
 <div class="topbar">أثر — قطع تحمل روح الزخرفة وتبقى جزءًا من الذاكرة.</div>
 <header class="header">
   <div class="container header-inner">
@@ -1148,6 +1221,7 @@ async function initializeCatalog(){
     const cleanImage=v=>typeof v==='string' && (/^assets\/[a-zA-Z0-9._/-]+$/.test(v)||/^data:image\/(webp|png|jpeg);base64,[A-Za-z0-9+/=]+$/.test(v)||/^https:\/\//.test(v))?v:'assets/round-rosette.webp';
     products=data.products.filter(p=>p&&typeof p.name==='string'&&p.id).map(p=>({...p,image:cleanImage(p.image)}));
     const s=data.settings||{};
+    window.__atharLoader?.setConfig(s);
     if(s.heroTitle)$('#siteHeroTitle').textContent=s.heroTitle;
     if(s.heroDescription)$('#siteHeroDescription').textContent=s.heroDescription;
     if(s.heroEyebrow)$('#siteHeroEyebrow').textContent=s.heroEyebrow;

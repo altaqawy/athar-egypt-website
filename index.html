@@ -572,6 +572,76 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
   .hero-mobile-photo-caption{transition:none!important}
 }
 
+
+@media(max-width:767px){body{overflow-x:clip!important;overflow-y:visible!important}}
+/* V7: Three real scroll states — photograph -> transparent ornament -> transparent gold piece. */
+.motif-story-v7{background:#f5eee2!important;overflow:visible!important;padding:0!important;position:relative;isolation:isolate}
+.motif-intro-v7{padding:clamp(55px,7vw,110px) 0 30px;display:flex;align-items:flex-end;justify-content:space-between;gap:30px}
+.motif-intro-copy{max-width:880px}
+.motif-intro-copy h2{font:400 clamp(43px,5.7vw,85px)/1.22 var(--serif);margin:15px 0 14px;color:#35281f}
+.motif-intro-copy h2 em{font-style:normal;color:#a9804c}
+.motif-intro-copy p{font:13px/2.4 var(--sans);max-width:610px;color:#776656;margin:0}
+.motif-intro-cue{font:12px var(--sans);color:#956f40;white-space:nowrap;padding-bottom:8px}
+.motif-intro-cue span{display:inline-block;padding-right:8px}
+.motif-scroll-track{height:340svh;position:relative;min-height:1550px}
+.motif-sticky-stage{height:100svh;min-height:570px;position:sticky;top:0;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 60% 40%,#fbf6ed,#f1e6d4 62%,#e5d4bc);--source-opacity:1;--motif-opacity:0;--product-opacity:0}
+.motif-stage-background{position:absolute;inset:0;opacity:calc(1 - var(--motif-progress) * .45);pointer-events:none;background-image:radial-gradient(circle at 1px 1px,rgba(170,135,82,.11) 1px,transparent 1px);background-size:24px 24px}
+.motif-stage-layout{height:100%;position:relative;display:grid;grid-template-columns:.82fr 1.18fr;gap:5%;align-items:center;direction:rtl}
+.motif-stage-copy{z-index:3;position:relative;padding-top:60px}
+.motif-stage-copy .eyebrow{font-size:11px}
+.motif-stage-step{font:36px Georgia,serif;color:#af8a58;margin-top:30px;direction:ltr;text-align:right}
+.motif-stage-step span{font-size:13px;color:#bfa888}
+.motif-stage-copy h3{font:400 clamp(42px,4.6vw,70px)/1.35 var(--serif);max-width:470px;margin:19px 0 5px;color:#38291c;text-wrap:balance}
+.motif-stage-copy p{font:13px/2.2 var(--sans);color:#796754;max-width:440px;min-height:58px;margin:10px 0 20px}
+.motif-stage-progress{display:flex;gap:10px;align-items:center;margin-top:26px}
+.motif-stage-progress span{width:24px;height:4px;border-radius:99px;background:#d9cbb6;transition:width .28s,background .28s}
+.motif-stage-progress span.is-active{width:53px;background:#9d713b}
+.motif-artwork{position:relative;width:min(100%,620px);aspect-ratio:1;justify-self:center;display:grid;place-items:center;isolation:isolate}
+.motif-source-photo{position:absolute;inset:6%;border-radius:22px;overflow:hidden;background:#d9cfaf;box-shadow:0 38px 80px rgba(58,38,22,.20);opacity:var(--source-opacity);transform:scale(var(--source-scale));z-index:1;will-change:opacity,transform}
+.motif-source-photo img{width:100%;height:100%;object-fit:cover}
+.motif-cutout{width:100%;height:100%;position:absolute;inset:0;object-fit:contain!important;padding:5%;background:transparent!important;filter:drop-shadow(0 26px 22px rgba(62,42,25,.18));transform:scale(var(--cutout-scale));will-change:opacity,transform;pointer-events:none}
+.motif-cutout-historic{opacity:var(--motif-opacity);z-index:2}
+.motif-cutout-product{opacity:var(--product-opacity);z-index:3}
+.motif-circle{position:absolute;inset:1%;border-radius:50%;border:1px solid rgba(168,122,66,.23);opacity:var(--orbit-opacity);z-index:0;transform:rotate(var(--motif-rotation));pointer-events:none}
+.motif-circle.orbit-b{inset:11%;border-style:dashed;border-color:rgba(168,122,66,.3);transform:rotate(calc(var(--motif-rotation) * -1))}
+.motif-stage-footer{position:absolute;bottom:29px;left:5%;right:5%;display:flex;justify-content:space-between;gap:20px;color:#9a815f;font:11px var(--sans);letter-spacing:.06em;pointer-events:none}
+@media(max-width:820px){
+ .motif-intro-v7{padding:58px 0 12px;display:block}
+ .motif-intro-copy h2{font-size:clamp(39px,7vw,61px)}
+ .motif-intro-cue{display:none}
+ .motif-scroll-track{height:320svh;min-height:1200px}
+ .motif-sticky-stage{min-height:0;height:100svh}
+ .motif-stage-layout{display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:8px}
+ .motif-stage-copy{padding-top:0;text-align:right;flex:0 0 auto}
+ .motif-stage-step{font-size:22px;margin-top:4px}
+ .motif-stage-copy h3{font-size:clamp(29px,7.6vw,41px);margin:0}
+ .motif-stage-copy p{font-size:11px;line-height:1.85;min-height:40px;margin:4px 0 0}
+ .motif-stage-progress{margin-top:7px}
+ .motif-artwork{width:min(100%,min(65svh,560px));max-height:65svh;align-self:center;flex:0 1 auto}
+ .motif-stage-footer{bottom:10px;right:6%;left:6%;font-size:9px}
+}
+@media(max-width:560px){
+ .motif-story-v7{padding:0!important}
+ .motif-intro-v7{padding:45px 0 20px}
+ .motif-intro-copy h2{font-size:clamp(34px,9.5vw,42px)}
+ .motif-intro-copy p{font-size:12px;line-height:2}
+ .motif-scroll-track{height:325svh;min-height:1050px}
+ .motif-sticky-stage{height:100svh;min-height:0}
+ .motif-stage-layout{padding-top:35px;gap:12px;justify-content:center}
+ .motif-stage-copy .eyebrow{font-size:10px}
+ .motif-stage-copy h3{font-size:clamp(30px,8.2vw,38px);line-height:1.22}
+ .motif-stage-copy p{font-size:11px;line-height:1.9;min-height:40px}
+ .motif-artwork{width:min(100%,min(56svh,470px));max-height:56svh;flex:0 0 auto}
+ .motif-source-photo{inset:3%;border-radius:14px}
+ .motif-stage-footer{bottom:10px}
+}
+@media(max-width:370px){.motif-artwork{width:min(100%,51svh)}.motif-intro-copy h2{font-size:33px}}
+@media(prefers-reduced-motion:reduce){
+ .motif-scroll-track{height:auto!important;min-height:0!important}
+ .motif-sticky-stage{position:relative!important;height:auto!important;min-height:510px!important;--source-opacity:0!important;--motif-opacity:0!important;--product-opacity:1!important;--orbit-opacity:.3!important;--cutout-scale:1!important}
+ .motif-stage-layout{min-height:510px}
+}
+
 </style>
 </head>
 <body>
@@ -714,26 +784,39 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
   </div>
 </section>
 
-<section id="ornament-journey" class="motif-story section" aria-label="من الزخرفة إلى القطعة">
-  <div class="container motif-layout">
-    <div class="motif-text reveal">
+<section id="ornament-journey" class="motif-story motif-story-v7" aria-label="من الزخرفة الأصلية إلى القطعة">
+  <div class="container motif-intro-v7">
+    <div class="motif-intro-copy reveal">
       <span class="eyebrow">النقش والقطعة</span>
-      <h2>نقشٌ له جذور.<br><em>وقطعةٌ لها حكاية.</em></h2>
-      <p>الزخرفة القديمة ليست مجرد خلفية جميلة؛ إنها تكوين متوازن من الخطوط والأوراق والتناظر. وهنا نعرض معالجة بصرية للزخرفة التاريخية، ثم تصورًا زخرفيًا ذهبيًا مستلهمًا من القطعة الأصلية.</p>
-      <div class="motif-key">
-        <span><i></i> نقش مستلهم من المرجع</span>
-        <span><i></i> تصور زخرفي ذهبي</span>
-      </div>
-      <p class="motif-hint">مع التمرير تظهر القطعة من مركز الدائرة، كأن الزخرفة تعود إلى الحياة.</p>
-      <a class="small-link" href="#collection">اكتشف المزيد من القطع ↙</a>
+      <h2>من الأثر على الجدار، <em>إلى قطعة تبقى.</em></h2>
+      <p>ابدأ بمشاهدة الزخرفة في صورتها الأصلية. ومع التمرير تختفي الخلفية لتبقى تفاصيل النقش وحدها، ثم تتحول إلى قطعة ذهبية مستلهمة منها.</p>
     </div>
-    <div class="motif-view reveal delay-1" data-motif-view>
-      <img class="motif-reference" src="assets/motif-history-cutout.webp" alt="تصميم زخرفة بنفسجية معزولة مستلهمة من الصورة المرجعية" loading="lazy">
-      <img class="motif-reveal" src="assets/motif-gold-cutout.webp" alt="تصميم زخرفة ذهبية معزولة مستلهمة من صورة المنتج" loading="lazy">
-      <div class="motif-orbit orbit-outer" aria-hidden="true"></div>
-      <div class="motif-orbit orbit-inner" aria-hidden="true"></div>
-      <div class="motif-view-label motif-before">من الزخرفة</div>
-      <div class="motif-view-label motif-after">إلى القطعة</div>
+    <span class="motif-intro-cue" aria-hidden="true">مرّر لاكتشاف التحوّل <span>↓</span></span>
+  </div>
+  <div class="motif-scroll-track" data-motif-track>
+    <div class="motif-sticky-stage" data-motif-stage style="--source-opacity:1;--motif-opacity:0;--product-opacity:0;--motif-progress:0;--orbit-opacity:0;--source-scale:1;--cutout-scale:.82">
+      <div class="motif-stage-background" aria-hidden="true"></div>
+      <div class="motif-stage-layout container">
+        <div class="motif-stage-copy">
+          <span class="eyebrow">رحلة الزخرفة</span>
+          <div class="motif-stage-step" data-motif-step>01 <span>/ 03</span></div>
+          <h3 data-motif-heading>الأصل كما وُجد.</h3>
+          <p data-motif-description>زخرفة تاريخية على سطحها القديم، بألوانها وملمسها وتفاصيلها.</p>
+          <div class="motif-stage-progress" aria-label="مراحل تحوّل الزخرفة">
+            <span class="is-active" data-motif-dot="1"></span><span data-motif-dot="2"></span><span data-motif-dot="3"></span>
+          </div>
+        </div>
+        <div class="motif-artwork" aria-label="صورة النقش الأصلية ثم النقش المعزول ثم القطعة الذهبية">
+          <div class="motif-source-photo">
+            <img src="assets/ornament-historic-motif.webp" loading="eager" alt="الصورة الأصلية للزخرفة البنفسجية على الخلفية الحجرية">
+          </div>
+          <img class="motif-cutout motif-cutout-historic" src="assets/motif-history-cutout.webp" alt="الزخرفة البنفسجية بدون خلفية" loading="eager">
+          <img class="motif-cutout motif-cutout-product" src="assets/motif-gold-cutout.webp" alt="قطعة أثر الذهبية بدون خلفية" loading="eager">
+          <div class="motif-circle orbit-a" aria-hidden="true"></div>
+          <div class="motif-circle orbit-b" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="motif-stage-footer" aria-hidden="true"><span>من النقش إلى القطعة</span><span>اسحب للأسفل ↓</span></div>
     </div>
   </div>
 </section>
@@ -1121,7 +1204,6 @@ initializeCatalog();
   const scene=document.querySelector('.scroll-museum');
   const stage=document.querySelector('.museum-sticky');
   const parallaxPhotos=[...document.querySelectorAll('[data-parallax-image]')];
-  const motifView=document.querySelector('[data-motif-view]');
   if(!scene || !stage) return;
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
   const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
@@ -1143,14 +1225,6 @@ initializeCatalog();
     stage.style.setProperty('--ring-rotate',(reduced.matches?0:p*310).toFixed(1)+'deg');
     stage.style.setProperty('--heading-shift',(reduced.matches?0:-p*vh*.07).toFixed(1)+'px');
     stage.classList.toggle('phase-two',p>.72 && !reduced.matches);
-    if(motifView){
-      if(reduced.matches){motifView.style.setProperty('--motif-radius','76%')}
-      else{
-        const mr=motifView.getBoundingClientRect();
-        const m=clamp((vh*.88-mr.top)/(vh*.72+mr.height*.8),0,1);
-        motifView.style.setProperty('--motif-radius',(10+m*66).toFixed(1)+'%');
-      }
-    }
     if(!reduced.matches){
       parallaxPhotos.forEach(el=>{
         const rect=el.parentElement.getBoundingClientRect();
@@ -1165,6 +1239,61 @@ initializeCatalog();
   addEventListener('resize',schedule,{passive:true});
   if(reduced.addEventListener) reduced.addEventListener('change',schedule);
   schedule();
+})();
+
+// Three scroll-driven stages: original photographed motif -> isolated motif -> isolated product.
+(function(){
+  const track=document.querySelector('[data-motif-track]');
+  const stage=document.querySelector('[data-motif-stage]');
+  if(!track || !stage)return;
+  const step=stage.querySelector('[data-motif-step]');
+  const heading=stage.querySelector('[data-motif-heading]');
+  const description=stage.querySelector('[data-motif-description]');
+  const dots=[...stage.querySelectorAll('[data-motif-dot]')];
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+  const copy=[
+    ['الأصل كما وُجد.','زخرفة تاريخية على سطحها القديم، بألوانها وملمسها وتفاصيلها.'],
+    ['الزخرفة وحدها.','من غير الخلفية الحجرية؛ تفاصيل النقش هي بطلة المشهد.'],
+    ['من النقش إلى القطعة.','تصور ذهبي مستلهم من الزخرفة، يربط الماضي بجمال اليوم.']
+  ];
+  const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
+  const smooth=t=>{const x=clamp(t);return x*x*(3-2*x)};
+  let raf=0,lastStep=0;
+  function render(){
+    raf=0;
+    const r=track.getBoundingClientRect();
+    const vh=window.innerHeight || 800;
+    const scrollable=Math.max(1,r.height-vh);
+    const p=reduced.matches ? 1 : clamp(-r.top/scrollable);
+    // Hold the original photo, reveal the floating motif, then the final gold product.
+    const reveal=smooth((p-.20)/.22);
+    const gold=smooth((p-.60)/.22);
+    const source=1-reveal;
+    const historic=reveal*(1-gold);
+    const product=gold;
+    const orbit=reveal*.62;
+    stage.style.setProperty('--motif-progress',p.toFixed(4));
+    stage.style.setProperty('--source-opacity',source.toFixed(4));
+    stage.style.setProperty('--motif-opacity',historic.toFixed(4));
+    stage.style.setProperty('--product-opacity',product.toFixed(4));
+    stage.style.setProperty('--orbit-opacity',orbit.toFixed(4));
+    stage.style.setProperty('--source-scale',(1+p*.035).toFixed(4));
+    stage.style.setProperty('--cutout-scale',(.82+reveal*.15+gold*.04).toFixed(4));
+    stage.style.setProperty('--motif-rotation',(reduced.matches?0:p*20).toFixed(2)+'deg');
+    const idx=p<.39?0:p<.74?1:2;
+    if(idx!==lastStep){
+      lastStep=idx;
+      step.innerHTML='0'+(idx+1)+' <span>/ 03</span>';
+      heading.textContent=copy[idx][0];
+      description.textContent=copy[idx][1];
+      dots.forEach((dot,i)=>dot.classList.toggle('is-active',i===idx));
+    }
+  }
+  function schedule(){if(!raf)raf=requestAnimationFrame(render)}
+  addEventListener('scroll',schedule,{passive:true});
+  addEventListener('resize',schedule,{passive:true});
+  if(reduced.addEventListener)reduced.addEventListener('change',schedule);
+  render();
 })();
 
 </script>

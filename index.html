@@ -313,6 +313,73 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
   html{overflow-x:clip}
 }
 
+
+/* Athar: typography sits directly on the page, without an enclosing panel. */
+.hero{background:radial-gradient(ellipse at 66% 40%,rgba(222,201,166,.22),transparent 56%),#f6f1e7;position:relative}
+.hero.pattern-bg::before{opacity:.34}
+.hero-grid{grid-template-columns:1.08fr .92fr;align-items:center}
+.hero-copy,.hero-copy.reveal{background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important;overflow:visible!important;padding:50px 28px 50px 24px;min-height:unset;position:relative;z-index:2}
+.hero-copy::before,.hero-copy::after{display:none!important;content:none!important}
+.hero-wordmark-float{display:none!important}
+.hero-copy .eyebrow{margin-bottom:27px}
+.hero-copy h1{font-size:clamp(52px,5vw,78px);line-height:1.29;max-width:640px;text-wrap:balance}
+.hero-copy p{font-size:14px;line-height:2.5;color:#736657;max-width:490px}
+.hero-meta{margin-top:38px;gap:24px}
+.hero-meta .meta-card{padding:0 15px 0 3px;border:none;background:none;border-radius:0;box-shadow:none;border-right:1px solid #c5aa80}
+.hero-meta .meta-card strong{font-size:13px;color:#745332}
+.hero-meta .meta-card span{font-size:11px;line-height:2.05}
+.floating-note{display:none!important}
+.hero-visual .hero-main-card{box-shadow:0 32px 65px rgba(59,44,27,.13)}
+.hero-visual .hero-side-card{box-shadow:0 18px 44px rgba(59,44,27,.11)}
+.architecture-pattern img{object-position:center}
+/* Authentic ornamental-photo scroll reveal — reference stays still, product grows within a circle. */
+.motif-story{background:linear-gradient(145deg,#ede4d4,#faf6ee);overflow:hidden}
+.motif-layout{display:grid;grid-template-columns:.88fr 1.12fr;align-items:center;gap:6.5%;min-height:660px}
+.motif-text{padding:30px 0}
+.motif-text h2{font:400 clamp(47px,4.5vw,77px)/1.22 var(--serif);margin:18px 0 24px}
+.motif-text h2 em{font-style:normal;color:#ad8050}
+.motif-text p{font-size:14px;line-height:2.5;color:#736657;max-width:470px}
+.motif-key{display:flex;gap:24px;flex-wrap:wrap;margin:28px 0}
+.motif-key span{font-size:12px;font-weight:700;display:flex;align-items:center;gap:8px;color:#605143}
+.motif-key i{display:block;width:10px;height:10px;background:#514078;border-radius:50%}
+.motif-key span+span i{background:#c59f5d}
+.motif-hint{max-width:350px!important;font-size:12px!important;color:#9a805f!important}
+.motif-view{aspect-ratio:1;position:relative;border-radius:50% 50% 12px 12px;isolation:isolate;overflow:hidden;box-shadow:0 28px 70px rgba(56,44,30,.19);--motif-radius:28%}
+.motif-reference,.motif-reveal{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.motif-reveal{clip-path:circle(var(--motif-radius) at 50% 50%);will-change:clip-path}
+.motif-view::after{content:'';position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 -50px 90px rgba(35,27,19,.22);z-index:4}
+.motif-orbit{position:absolute;z-index:3;pointer-events:none;left:50%;top:50%;aspect-ratio:1;transform:translate(-50%,-50%);border:1px solid rgba(245,222,173,.74);border-radius:50%}
+.orbit-outer{width:72%;border-style:dashed;animation:motif-orbit-turn 29s linear infinite}
+.orbit-inner{width:60%;border-color:rgba(254,235,189,.92);animation:motif-orbit-turn 19s linear infinite reverse}
+.motif-view-label{position:absolute;z-index:5;bottom:25px;padding:9px 15px;background:rgba(251,247,239,.91);color:#5b4632;font-size:12px;border-radius:100px;box-shadow:0 8px 24px rgba(26,20,15,.12)}
+.motif-before{right:25px}.motif-after{left:25px}
+@keyframes motif-orbit-turn{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@media(max-width:1180px){.motif-layout{grid-template-columns:1fr;gap:28px}.motif-view{width:min(100%,680px);justify-self:center}.motif-text{padding:0}}
+@media(max-width:860px){.hero-copy,.hero-copy.reveal{padding:20px 8px 28px}.hero-copy h1{font-size:clamp(42px,7vw,60px)}.hero-meta{grid-template-columns:repeat(3,1fr);gap:10px}.hero-meta .meta-card{padding-right:9px}.motif-layout{min-height:auto}}
+@media(max-width:560px){.hero-copy h1{font-size:43px}.hero-copy .eyebrow{margin-bottom:18px}.hero-copy p{font-size:13px}.hero-meta{grid-template-columns:1fr;gap:14px}.hero-meta .meta-card{padding:0 12px;border-right:2px solid #bf9a67}.motif-view-label{font-size:10px;bottom:12px}.motif-before{right:12px}.motif-after{left:12px}.motif-text h2{font-size:43px}}
+@media(prefers-reduced-motion:reduce){.motif-reveal{clip-path:circle(76% at 50% 50%)!important}.motif-orbit{animation:none!important}}
+
+
+/* Responsive order: editorial copy first, product photographs second. */
+@media(max-width:1180px){
+  .hero-grid{grid-template-columns:minmax(0,1fr)!important;align-items:stretch}
+  .hero-copy{grid-row:1}
+  .hero-visual{grid-row:2;grid-template-columns:minmax(0,1fr) minmax(0,.75fr)}
+  .hero-main-card{min-height:480px}
+}
+@media(max-width:860px){
+  .hero-visual{grid-template-columns:minmax(0,1fr)}
+  .hero-side-stack{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:none}
+  .hero-copy{padding:18px 8px 32px!important}
+}
+@media(max-width:560px){
+  .hero-main-card{min-height:370px;max-height:470px}
+  .hero-main-card>img{object-position:center 44%}
+  .hero-side-card{min-height:190px;max-height:250px}
+  .hero-meta{margin-top:25px}
+  .hero-visual{gap:12px}
+  .hero-copy h1{font-size:clamp(39px,10vw,48px);line-height:1.28}
+}
 </style>
 </head>
 <body>
@@ -347,7 +414,6 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
     <div class="container hero-grid">
       <div class="hero-copy reveal visible">
         <span class="eyebrow">روح تراثية</span>
-        <div class="hero-wordmark-float" aria-hidden="true"><img src="assets/logo-transparent.png" alt=""></div>
         <h1>من <span>روحِ التراث</span> إلى تفاصيلِ بيتِ اليوم.</h1>
         <p>
           لا نعرض منتجًا فقط؛ بل نُقدِّم حضورًا بصريًا دافئًا، مستمدًا من الزخارف التاريخية واللمسات اليدوية والمواد التي تمنح القطعة طابعًا خالدًا.
@@ -374,10 +440,6 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
       <div class="hero-visual reveal delay-1 visible">
         <div class="hero-main-card orbit-frame"><div class="orbit-decor" aria-hidden="true"><span></span><span></span><span></span></div>
           <img src="assets/mirror-pair.webp" alt="مجموعة مرايا أثر" loading="eager">
-          <div class="floating-note">
-            <small>قطعة مميزة</small>
-            <p>تناغم بين المقاس الكبير والصغير ليصنع مشهدًا تراثيًا هادئًا داخل المكان.</p>
-          </div>
         </div>
         <div class="hero-side-stack">
           <div class="hero-side-card"><img src="assets/star-flower.webp" alt="قطعة زخرفية من أثر"></div>
@@ -398,7 +460,7 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
     <div class="museum-heading">
       <span class="museum-kicker">رحلة في الذاكرة البصرية</span>
       <h2>من <em>الحجر</em> إلى <em>الزخرفة</em></h2>
-      <p>اسكرول للأسفل لتظهر القطعة أمامك، وتتحرك طبقات المشهد بسرعات مختلفة.</p>
+      <p>من إيقاع الأعمدة الحجرية إلى النُقوش الدائرية؛ التفاصيل القديمة تترك أثرًا جديدًا في كل قطعة.</p>
     </div>
     <div class="museum-object" aria-label="مرآة زخرفية تظهر تدريجيًا مع التمرير">
       <div class="museum-ring ring-one"></div>
@@ -423,7 +485,7 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
   <div class="container">
     <div class="section-head reveal">
       <div><span class="eyebrow">من أين يأتي الإلهام؟</span><h2>صفحات من ذاكرة المكان.</h2></div>
-      <p>فصول بصرية بين أعمدة المعابد المصرية ورقّة الزخارف الإسلامية. لكل فن عصره وهويته، لكن الجمال يظل رابطًا بين الأزمنة.</p>
+      <p>فصول بصرية بين أعمدة المعابد المصرية وصور الزخارف الهندسية الفعلية. لكل فن عصره وهويته، وللتفاصيل حضورها الخاص.</p>
     </div>
     <div class="architecture-grid">
       <figure class="architecture-card architecture-temple reveal">
@@ -431,10 +493,34 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
         <figcaption><span>01 — من الحضارة المصرية القديمة</span><strong>العمارة التي تحفظ الذاكرة.</strong></figcaption>
       </figure>
       <figure class="architecture-card architecture-pattern reveal delay-1">
-        <img data-parallax-image src="https://images.unsplash.com/photo-1725710017711-eaabee5c0ac9?auto=format&amp;fit=crop&amp;w=1300&amp;q=80" loading="lazy" alt="رسوم زخرفية هندسية من التراث الإسلامي" onerror="this.style.visibility='hidden'">
-        <figcaption><span>02 — من الفنون الإسلامية</span><strong>تناظرٌ يصنع الجمال.</strong></figcaption>
+        <img data-parallax-image src="assets/ornament-historic-motif.webp" loading="lazy" alt="زخرفة هندسية أصلية مصورة ضمن مراجع أثر">
+        <figcaption><span>02 — نقش زخرفي حقيقي</span><strong>دوائر وزهور من قلب التراث.</strong></figcaption>
       </figure>
       <div class="architecture-stamp reveal delay-2" aria-hidden="true"><img src="assets/logo-transparent.png" alt=""><span>دوائر · تفاصيل · حكايات</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="ornament-journey" class="motif-story section" aria-label="من الزخرفة إلى القطعة">
+  <div class="container motif-layout">
+    <div class="motif-text reveal">
+      <span class="eyebrow">النقش والقطعة</span>
+      <h2>نقشٌ له جذور.<br><em>وقطعةٌ لها حكاية.</em></h2>
+      <p>الزخرفة القديمة ليست مجرد خلفية جميلة؛ إنها تكوين متوازن من الخطوط والأوراق والتناظر. وهنا نعرض صورة زخرفية حقيقية بجوار قطعة مستلهمة من لغتها البصرية.</p>
+      <div class="motif-key">
+        <span><i></i> صورة الزخرفة</span>
+        <span><i></i> القطعة الذهبية</span>
+      </div>
+      <p class="motif-hint">مع التمرير تظهر القطعة من مركز الدائرة، كأن الزخرفة تعود إلى الحياة.</p>
+      <a class="small-link" href="#collection">اكتشف المزيد من القطع ↙</a>
+    </div>
+    <div class="motif-view reveal delay-1" data-motif-view>
+      <img class="motif-reference" src="assets/ornament-historic-motif.webp" alt="صورة حقيقية لزخرفة نباتية هندسية باللون البنفسجي" loading="lazy">
+      <img class="motif-reveal" src="assets/ornament-golden-work.webp" alt="القطعة الذهبية المستلهمة من الزخارف الهندسية" loading="lazy">
+      <div class="motif-orbit orbit-outer" aria-hidden="true"></div>
+      <div class="motif-orbit orbit-inner" aria-hidden="true"></div>
+      <div class="motif-view-label motif-before">من الزخرفة</div>
+      <div class="motif-view-label motif-after">إلى القطعة</div>
     </div>
   </div>
 </section>
@@ -456,12 +542,12 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
         </article>
         <article class="feature-card reveal delay-2">
           <div class="feature-icon">◌</div>
-          <h3>تقسيم تحريري</h3>
+          <h3>زخارف تحكي</h3>
           <p>كل قطعة تفتح نافذة على حكاية من الفن والعمارة؛ من شكل النجمة إلى تكرار الزخرفة.</p>
         </article>
         <article class="feature-card reveal delay-3">
           <div class="feature-icon">❂</div>
-          <h3>أنيميشن أفخم</h3>
+          <h3>حضور يتجدد</h3>
           <p>تعيش الألوان والمواد والدوائر مع الضوء لتمنح الزخرفة حضورًا مختلفًا في كل زاوية.</p>
         </article>
       </div>
@@ -758,6 +844,7 @@ renderProducts(); renderCart(); observeReveals();
   const scene=document.querySelector('.scroll-museum');
   const stage=document.querySelector('.museum-sticky');
   const parallaxPhotos=[...document.querySelectorAll('[data-parallax-image]')];
+  const motifView=document.querySelector('[data-motif-view]');
   if(!scene || !stage) return;
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
   const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
@@ -779,6 +866,14 @@ renderProducts(); renderCart(); observeReveals();
     stage.style.setProperty('--ring-rotate',(reduced.matches?0:p*310).toFixed(1)+'deg');
     stage.style.setProperty('--heading-shift',(reduced.matches?0:-p*vh*.07).toFixed(1)+'px');
     stage.classList.toggle('phase-two',p>.72 && !reduced.matches);
+    if(motifView){
+      if(reduced.matches){motifView.style.setProperty('--motif-radius','76%')}
+      else{
+        const mr=motifView.getBoundingClientRect();
+        const m=clamp((vh*.88-mr.top)/(vh*.72+mr.height*.8),0,1);
+        motifView.style.setProperty('--motif-radius',(10+m*66).toFixed(1)+'%');
+      }
+    }
     if(!reduced.matches){
       parallaxPhotos.forEach(el=>{
         const rect=el.parentElement.getBoundingClientRect();

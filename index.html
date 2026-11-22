@@ -231,15 +231,96 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
 @media (prefers-reduced-motion: reduce){
   *{scroll-behavior:auto!important;animation:none!important;transition:none!important}
 }
+
+.brand-symbol,.brand-text,.hero-logo,.hero-logo-panel{display:none !important}
+.brand.brand-minimal{display:inline-flex;align-items:center}
+.brand-wordmark{width:84px;height:auto;object-fit:contain;filter:drop-shadow(0 8px 20px rgba(45,33,20,.12))}
+.header-inner{grid-template-columns:auto 1fr auto;display:grid}
+.nav{justify-self:center}
+.brand-minimal .brand-wordmark{width:92px}
+.hero-copy{overflow:visible}
+.hero-wordmark-float{position:absolute;left:34px;top:-34px;z-index:4;animation:floatLogo 6s ease-in-out infinite}
+.hero-wordmark-float img{width:118px;height:auto;filter:drop-shadow(0 12px 26px rgba(42,31,22,.16))}
+.hero-copy h1{max-width:720px}
+.orbit-frame{position:relative;overflow:visible}
+.orbit-decor{position:absolute;inset:auto auto 36px -44px;width:170px;height:170px;pointer-events:none;z-index:4}
+.orbit-decor span{position:absolute;inset:0;border:1px solid rgba(180,138,87,.28);border-radius:50%;animation:spin 18s linear infinite}
+.orbit-decor span:nth-child(2){inset:16px;animation-duration:14s;animation-direction:reverse;border-style:dashed;opacity:.8}
+.orbit-decor span:nth-child(3){inset:38px;border-color:rgba(180,138,87,.55);animation-duration:10s}
+.orbit-frame:before{content:'';position:absolute;left:-30px;bottom:22px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle, rgba(199,163,111,.18), transparent 68%);z-index:3;animation:pulseCircle 5s ease-in-out infinite}
+.quote-card .standalone-wordmark{width:66px;height:auto;display:block}
+.footer-wordmark .brand-wordmark{width:84px;filter:none}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes pulseCircle{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.08);opacity:1}}
+@media (max-width:860px){
+  .brand-minimal .brand-wordmark{width:74px}
+  .hero-wordmark-float{left:18px;top:-24px}
+  .hero-wordmark-float img{width:86px}
+  .orbit-decor{width:118px;height:118px;left:-18px;bottom:14px}
+}
+
+
+/* Scroll storytelling: circular movement inspired by Athar's round mirrors. */
+.scroll-museum{height:235vh;position:relative;color:#fff;background:#1b1715}
+.museum-sticky{position:sticky;top:0;height:100svh;min-height:570px;overflow:hidden;isolation:isolate;--progress:0;--appear:0;--phase:0;--bg-move:0px;--object-rise:110px;--ring-rotate:0deg;--object-scale:.73;--heading-shift:0px}
+.museum-backdrop,.museum-grain{position:absolute;inset:0;overflow:hidden}
+.museum-backdrop:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(24,17,11,.73) 0%,rgba(24,17,11,.15) 40%,rgba(24,17,11,.72) 100%),linear-gradient(0deg,rgba(20,15,11,.65),transparent 36%,rgba(20,15,11,.3));z-index:2}
+.museum-temple{position:absolute;inset:-8%;height:116%;width:116%;object-fit:cover;object-position:center 46%;transform:translate3d(0,var(--bg-move),0) scale(1.07);will-change:transform;transition:opacity .55s linear}
+.museum-temple-b{opacity:var(--phase);object-position:center 54%}
+.museum-grain{z-index:2;pointer-events:none;opacity:.3;background-image:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(255,255,255,.015) 5px)}
+.museum-heading{position:absolute;z-index:6;right:6%;top:13%;max-width:510px;transform:translate3d(0,var(--heading-shift),0)}
+.museum-kicker{font-size:11px;letter-spacing:.2em;color:#f4d5a6;border-bottom:1px solid rgba(244,213,166,.4);padding-bottom:12px;display:inline-block}
+.museum-heading h2{font:400 clamp(43px,6.2vw,104px)/1.18 var(--serif);margin:22px 0 10px;text-wrap:balance;text-shadow:0 8px 30px rgba(0,0,0,.2)}
+.museum-heading h2 em{font-style:normal;color:#ecc996}
+.museum-heading p{color:#f1dfc7;font-size:13px;line-height:2.2;max-width:345px}
+.museum-object{position:absolute;z-index:5;left:17%;top:51%;width:min(39vw,510px);aspect-ratio:1;display:grid;place-items:center;transform:translate3d(0,calc(-50% + var(--object-rise)),0) scale(var(--object-scale));opacity:var(--appear);will-change:transform,opacity}
+.museum-disc{width:74%;height:74%;border-radius:50%;overflow:hidden;border:10px solid #d4b681;outline:1px solid rgba(255,241,210,.8);box-shadow:0 0 0 22px rgba(234,201,152,.09),0 38px 110px rgba(0,0,0,.42);position:relative;background:#c8ab80;z-index:3}
+.museum-disc img{width:100%;height:100%;object-fit:cover;object-position:center;position:absolute;inset:0}
+.museum-product-a{opacity:calc(1 - var(--phase))}.museum-product-b{opacity:var(--phase)}
+.museum-ring{position:absolute;border-radius:50%;border:1px solid rgba(240,218,177,.52);transform:rotate(var(--ring-rotate))}
+.museum-ring:before{content:'✦';position:absolute;left:50%;top:-10px;transform:translateX(-50%);font-size:21px;color:#ecd1a4}
+.ring-one{inset:0;border-style:dashed}.ring-two{inset:7%;transform:rotate(calc(var(--ring-rotate) * -1));border-color:rgba(240,218,177,.35)}.ring-three{inset:15%;border-color:rgba(240,218,177,.65)}
+.museum-fleck{position:absolute;width:12px;height:12px;border-radius:50%;background:#c9a677;box-shadow:0 0 22px #e8c48a;z-index:5}.fleck-one{left:4%;top:40%}.fleck-two{right:3%;bottom:32%;width:7px;height:7px}
+.museum-note{position:absolute;z-index:6;right:6%;bottom:11%;width:min(400px,38vw);border-right:1px solid #dcc29a;padding:0 20px 0 0;opacity:calc(.4 + var(--appear) * .6)}
+.museum-note>span{font:12px Georgia;letter-spacing:.18em;color:#e9c994}.museum-note h3{font:400 clamp(25px,2.8vw,46px)/1.25 var(--serif);margin:9px 0}.museum-note .note-b{display:none}.museum-sticky.phase-two .museum-note .note-a{display:none}.museum-sticky.phase-two .museum-note .note-b{display:block}
+.museum-note p{font-size:12px;line-height:2.2;color:#e4d7c5;max-width:340px}.museum-note a{display:inline-flex;gap:13px;align-items:center;color:#f4d4a5;font-size:12px;border-bottom:1px solid rgba(244,212,165,.6);padding-bottom:6px}
+.museum-progress{position:absolute;right:3%;top:26%;height:49%;width:2px;background:rgba(250,231,201,.22);z-index:7}.museum-progress span{width:100%;display:block;height:calc(var(--progress) * 100%);background:#e4bd83;box-shadow:0 0 12px #e4bd83}
+.museum-side-label{position:absolute;z-index:5;left:20px;bottom:30px;letter-spacing:.35em;writing-mode:vertical-rl;color:rgba(255,230,197,.6);font:10px Georgia}
+.architectural-gallery{background:#eee5d7}
+.architecture-grid{display:grid;grid-template-columns:1.12fr .88fr;grid-template-rows:500px;gap:24px;position:relative}
+.architecture-card{position:relative;border-radius:200px 200px 22px 22px;overflow:hidden;margin:0;background:linear-gradient(160deg,#c1a77e,#584636);box-shadow:var(--shadow)}
+.architecture-card img{position:absolute;width:100%;height:116%;top:-8%;left:0;object-fit:cover;transform:translate3d(0,var(--parallax-y,0px),0);will-change:transform}
+.architecture-card:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(29,20,13,.76),transparent 50%)}
+.architecture-card figcaption{position:absolute;bottom:27px;right:30px;z-index:2;color:white;max-width:440px}
+.architecture-card figcaption span{font-size:11px;letter-spacing:.05em;display:block;color:#ead7b6;margin-bottom:9px}
+.architecture-card figcaption strong{font:400 clamp(27px,3vw,46px)/1.3 var(--serif)}
+.architecture-stamp{position:absolute;left:43%;bottom:-34px;z-index:3;width:142px;aspect-ratio:1;background:#f7f0e4;border:8px solid #eee5d7;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;box-shadow:0 10px 35px rgba(40,26,15,.14)}
+.architecture-stamp img{width:54px;object-fit:contain}.architecture-stamp span{font-size:10px;color:#876f53}
+@media (max-width:860px){.scroll-museum{height:190vh}.museum-sticky{min-height:530px}.museum-heading{top:12%;right:7%;left:7%;max-width:none}.museum-heading h2{font-size:clamp(38px,10vw,60px);max-width:470px}.museum-heading p{font-size:12px;max-width:340px}.museum-object{left:50%;top:53%;width:min(68vw,400px);transform:translate3d(-50%,calc(-50% + var(--object-rise)),0) scale(var(--object-scale))}.museum-note{right:7%;left:7%;bottom:7%;width:auto}.museum-progress{right:auto;left:20px;top:34%;height:32%}.museum-side-label{display:none}.architecture-grid{grid-template-columns:1fr 1fr;grid-template-rows:390px;gap:12px}.architecture-stamp{width:100px;left:calc(50% - 50px)}.architecture-stamp img{width:36px}.architecture-stamp span{font-size:8px}}
+@media (max-width:560px){.museum-sticky{min-height:570px}.museum-heading{top:9%}.museum-heading h2{font-size:43px;margin:12px 0 0}.museum-heading p{font-size:11px;max-width:280px;margin:8px 0}.museum-object{width:78vw;top:53%;left:50%}.museum-disc{border-width:6px}.museum-note{bottom:5%;padding-right:12px}.museum-note h3{font-size:26px}.museum-note p{font-size:11px;line-height:1.8;margin:5px 0 10px}.architecture-grid{grid-template-columns:1fr;grid-template-rows:420px 360px;gap:18px}.architecture-card{border-radius:120px 120px 22px 22px}.architecture-stamp{bottom:340px;left:calc(50% - 46px);width:92px}}
+@media (prefers-reduced-motion: reduce){.museum-sticky{--appear:1!important;--object-rise:0px!important;--object-scale:1!important;--bg-move:0px!important;--ring-rotate:0deg!important}.museum-temple,.museum-object,.architecture-card img{will-change:auto!important}}
+
+
+/* Keep the wordmark unboxed and avoid narrow-phone header overflow. */
+.museum-backdrop{background:#3b2b20 url('assets/mirror-burgundy.webp') center/cover no-repeat}
+.architecture-temple{background:#72543b url('assets/wood-frame.webp') center/cover no-repeat}
+.architecture-pattern{background:#b99c70 url('assets/star-tile.webp') center/cover no-repeat}
+@media(max-width:560px){
+  .header .nav-actions>.solid-btn{display:none}
+  .header-inner{gap:8px}
+  .header .nav-actions{gap:8px}
+  .header .brand-wordmark{width:65px}
+  html{overflow-x:clip}
+}
+
 </style>
 </head>
 <body>
-<div class="topbar">ATHAR EGYPT — قطع تحمل روح الزخرفة، وتُصاغ لتبقى جزءًا من الذاكرة.</div>
+<div class="topbar">أثر — قطع تحمل روح الزخرفة وتبقى جزءًا من الذاكرة.</div>
 <header class="header">
   <div class="container header-inner">
-    <a class="brand" href="#home" aria-label="أثر الرئيسية">
-      <span class="brand-symbol"><img src="assets/logo-transparent.png" alt="شعار أثر"></span>
-      <span class="brand-text"><strong>أثر</strong><span>ATHAR EGYPT</span></span>
+    <a class="brand brand-minimal" href="#home" aria-label="أثر الرئيسية">
+      <img class="brand-wordmark" src="assets/logo-transparent.png" alt="أثر">
     </a>
     <nav class="nav" aria-label="التنقل الرئيسي">
       <a href="#home">الرئيسية</a>
@@ -265,15 +346,9 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
   <section class="hero pattern-bg">
     <div class="container hero-grid">
       <div class="hero-copy reveal visible">
-        <span class="eyebrow">Heritage crafted visually</span>
-        <div class="hero-logo-panel">
-          <div class="hero-logo"><img src="assets/logo-transparent.png" alt="شعار أثر"></div>
-          <div>
-            <div style="font:700 34px var(--serif);margin-bottom:6px">تراث يُرى ويُقتنى</div>
-            <div style="font-size:12px;color:#8b785f;line-height:2">مرايا وزخارف وإطارات مستلهمة من الفن الإسلامي وروح الحِرفة.</div>
-          </div>
-        </div>
-        <h1>كل قطعة من <span>أثر</span> تحمل تفاصيلٍ من الماضي لتعيش في بيت اليوم.</h1>
+        <span class="eyebrow">روح تراثية</span>
+        <div class="hero-wordmark-float" aria-hidden="true"><img src="assets/logo-transparent.png" alt=""></div>
+        <h1>من <span>روحِ التراث</span> إلى تفاصيلِ بيتِ اليوم.</h1>
         <p>
           لا نعرض منتجًا فقط؛ بل نُقدِّم حضورًا بصريًا دافئًا، مستمدًا من الزخارف التاريخية واللمسات اليدوية والمواد التي تمنح القطعة طابعًا خالدًا.
         </p>
@@ -297,10 +372,10 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
         </div>
       </div>
       <div class="hero-visual reveal delay-1 visible">
-        <div class="hero-main-card">
+        <div class="hero-main-card orbit-frame"><div class="orbit-decor" aria-hidden="true"><span></span><span></span><span></span></div>
           <img src="assets/mirror-pair.webp" alt="مجموعة مرايا أثر" loading="eager">
           <div class="floating-note">
-            <small>FEATURED PIECE</small>
+            <small>قطعة مميزة</small>
             <p>تناغم بين المقاس الكبير والصغير ليصنع مشهدًا تراثيًا هادئًا داخل المكان.</p>
           </div>
         </div>
@@ -312,30 +387,82 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
     </div>
   </section>
 
+
+<section id="museum" class="scroll-museum" aria-label="رحلة بصرية بين المعابد والزخارف">
+  <div class="museum-sticky">
+    <div class="museum-backdrop">
+      <img class="museum-temple museum-temple-a" src="https://images.unsplash.com/photo-1781133548263-05abf3087dcc?auto=format&amp;fit=crop&amp;w=1800&amp;q=82" alt="أعمدة معبد مصري قديم من تصوير فيليب رينر" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'">
+      <img class="museum-temple museum-temple-b" src="https://images.unsplash.com/photo-1738580427277-a38e44363c79?auto=format&amp;fit=crop&amp;w=1800&amp;q=82" alt="تفاصيل معبد فيلة بأسوان" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'">
+    </div>
+    <div class="museum-grain" aria-hidden="true"></div>
+    <div class="museum-heading">
+      <span class="museum-kicker">رحلة في الذاكرة البصرية</span>
+      <h2>من <em>الحجر</em> إلى <em>الزخرفة</em></h2>
+      <p>اسكرول للأسفل لتظهر القطعة أمامك، وتتحرك طبقات المشهد بسرعات مختلفة.</p>
+    </div>
+    <div class="museum-object" aria-label="مرآة زخرفية تظهر تدريجيًا مع التمرير">
+      <div class="museum-ring ring-one"></div>
+      <div class="museum-ring ring-two"></div>
+      <div class="museum-ring ring-three"></div>
+      <div class="museum-disc"><img class="museum-product-a" src="assets/mirror-blue.webp" alt="مرآة ذات إطار ذهبي وأزرق من منتجات أثر"><img class="museum-product-b" src="assets/round-rosette.webp" alt="زخرفة دائرية ذهبية من منتجات أثر"></div>
+      <div class="museum-fleck fleck-one"></div><div class="museum-fleck fleck-two"></div>
+    </div>
+    <div class="museum-note">
+      <span>01 / 02</span>
+      <h3 class="note-a">للدوائر حكايات لا تنتهي.</h3>
+      <h3 class="note-b">والنقش يبقى حاضرًا.</h3>
+      <p>صور المعابد توثّق جانبًا من التراث المصري القديم، أما القطع المعروضة فتستلهم زخارف من الفن الإسلامي والتكوينات الهندسية.</p>
+      <a href="#collection">شاهد المجموعة <span aria-hidden="true">↙</span></a>
+    </div>
+    <div class="museum-progress" aria-label="تقدّم مشهد التمرير"><span></span></div>
+    <span class="museum-side-label">ART · MEMORY · FORM</span>
+  </div>
+</section>
+
+<section class="architectural-gallery section" aria-label="صور العمارة والزخارف التراثية">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><span class="eyebrow">من أين يأتي الإلهام؟</span><h2>صفحات من ذاكرة المكان.</h2></div>
+      <p>فصول بصرية بين أعمدة المعابد المصرية ورقّة الزخارف الإسلامية. لكل فن عصره وهويته، لكن الجمال يظل رابطًا بين الأزمنة.</p>
+    </div>
+    <div class="architecture-grid">
+      <figure class="architecture-card architecture-temple reveal">
+        <img data-parallax-image src="https://images.unsplash.com/photo-1681403432633-b2ed919f3650?auto=format&amp;fit=crop&amp;w=1300&amp;q=80" loading="lazy" alt="نقوش حجرية على أعمدة معبد مصري قديم" onerror="this.style.visibility='hidden'">
+        <figcaption><span>01 — من الحضارة المصرية القديمة</span><strong>العمارة التي تحفظ الذاكرة.</strong></figcaption>
+      </figure>
+      <figure class="architecture-card architecture-pattern reveal delay-1">
+        <img data-parallax-image src="https://images.unsplash.com/photo-1725710017711-eaabee5c0ac9?auto=format&amp;fit=crop&amp;w=1300&amp;q=80" loading="lazy" alt="رسوم زخرفية هندسية من التراث الإسلامي" onerror="this.style.visibility='hidden'">
+        <figcaption><span>02 — من الفنون الإسلامية</span><strong>تناظرٌ يصنع الجمال.</strong></figcaption>
+      </figure>
+      <div class="architecture-stamp reveal delay-2" aria-hidden="true"><img src="assets/logo-transparent.png" alt=""><span>دوائر · تفاصيل · حكايات</span></div>
+    </div>
+  </div>
+</section>
+
   <section id="heritage" class="feature-belt section" style="padding-top:54px">
     <div class="container">
       <div class="section-head reveal">
         <div>
           <span class="eyebrow">هوية العلامة</span>
-          <h2>تقسيمة أقرب لمعرض تراثي… لا لمتجر تقليدي.</h2>
+          <h2>الفنّ الذي لا يفقد أثره.</h2>
         </div>
-        <p>الهوية الجديدة تعتمد على مساحات هادئة، بطاقات تحريريّة، ونَفَس بصري يجعل كل قطعة تبدو كأنها صفحة من حكاية قديمة.</p>
+        <p>تستعيد هذه المجموعة روح العمارة والزخارف القديمة في قطع تُضيء تفاصيل البيت، وتمنحه حكايةً فريدة.</p>
       </div>
       <div class="feature-grid">
         <article class="feature-card reveal delay-1">
           <div class="feature-icon">✦</div>
           <h3>زخرفة بهدوء بصري</h3>
-          <p>استخدام الخطوط والزخارف بشكل خفيف وراقٍ بدل المبالغة، حتى تظل القطعة هي البطل الرئيسي في الصفحة.</p>
+          <p>خطوط منسوجة بروح التراث، وتكوينات متوازنة تنقل جمال الزخرفة إلى تفاصيل الحياة اليومية.</p>
         </article>
         <article class="feature-card reveal delay-2">
           <div class="feature-icon">◌</div>
           <h3>تقسيم تحريري</h3>
-          <p>الواجهة مبنية على أقسام تحكي: الإلهام، المجموعة، رحلة الصناعة، والقطع المختارة، بدل تقسيمة متجر نمطية.</p>
+          <p>كل قطعة تفتح نافذة على حكاية من الفن والعمارة؛ من شكل النجمة إلى تكرار الزخرفة.</p>
         </article>
         <article class="feature-card reveal delay-3">
           <div class="feature-icon">❂</div>
           <h3>أنيميشن أفخم</h3>
-          <p>ظهور تدريجي ناعم، حركة خفيفة للبطاقات، وإحساس أقرب إلى تجربة Framer لكن بروح تراثية واضحة.</p>
+          <p>تعيش الألوان والمواد والدوائر مع الضوء لتمنح الزخرفة حضورًا مختلفًا في كل زاوية.</p>
         </article>
       </div>
     </div>
@@ -348,14 +475,14 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
           <span class="eyebrow">مختارات محرّرة</span>
           <h2>صورة العلامة من خلال القطع.</h2>
         </div>
-        <p>هنا تظهر المجموعة كأنها معرض صغير داخل الموقع: لقطة بطول الصفحة، بطاقة قصة، وصور تفصيلية تُظهر اللمسة اليدوية.</p>
+        <p>صور وتفاصيل متناغمة تكشف جمال كل قطعة من مسافة، ثم تدعوك للاقتراب من زخارفها.</p>
       </div>
       <div class="curated-layout">
         <div class="curated-large">
           <article class="image-card reveal delay-1" style="min-height:540px">
             <img src="assets/mirror-white.webp" alt="مرآة أثر بزخارف متعددة">
             <div class="overlay-copy">
-              <small>ATHAR MIRROR SERIES</small>
+              <small>سلسلة المرايا</small>
               <h3>مرآة تحضر كقطعة ديكور وكأثر بصري.</h3>
             </div>
           </article>
@@ -374,28 +501,28 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
           <article class="textural-card reveal delay-2" style="min-height:258px">
             <img src="assets/round-rosette.webp" alt="وردة زخرفية دائرية">
             <div class="overlay-copy">
-              <small>ORNAMENT</small>
+              <small>زخرفة</small>
               <h3>تناظر يلفت النظر.</h3>
             </div>
           </article>
           <article class="textural-card reveal delay-3" style="min-height:258px">
             <img src="assets/mirror-blue.webp" alt="مرآة إطار أزرق">
             <div class="overlay-copy">
-              <small>MIRROR</small>
+              <small>مرآة</small>
               <h3>لون عميق ولمعة هادئة.</h3>
             </div>
           </article>
           <article class="textural-card reveal delay-3" style="min-height:258px">
             <img src="assets/star-crimson.webp" alt="نجمة زخرفية حمراء">
             <div class="overlay-copy">
-              <small>DETAIL</small>
+              <small>تفصيلة</small>
               <h3>نقش حاد ودفء بصري.</h3>
             </div>
           </article>
           <article class="textural-card reveal delay-4" style="min-height:258px">
             <img src="assets/flower-small.webp" alt="وردة زخرفية من أثر">
             <div class="overlay-copy">
-              <small>SMALL PIECE</small>
+              <small>قطعة صغيرة</small>
               <h3>قطعة صغيرة… حضورها كبير.</h3>
             </div>
           </article>
@@ -407,10 +534,10 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
   <section id="craft" class="section craft-section">
     <div class="container craft-grid">
       <div class="craft-intro reveal">
-        <span class="eyebrow" style="color:#d1af80">Journey of the piece</span>
+        <span class="eyebrow" style="color:#d1af80">رحلة القطعة</span>
         <h2>كيف تتحول الزخرفة إلى قطعة تُقتنى؟</h2>
         <p>
-          بدل أن يكون هذا القسم تقليديًا، صُمم كمسار يشرح للزائر كيف تتولد الفكرة وتُصاغ بصريًا. هذا يمنح العلامة ثقة، ويُشعر الزائر أن كل قطعة وراءها رؤية، لا مجرد تنفيذ.
+          من التأمل في الزخارف القديمة إلى إعادة تصورها في قطع معاصرة؛ رحلة إلهام تحافظ على روح الفن وتمنحها مساحة جديدة.
         </p>
       </div>
       <div class="craft-steps">
@@ -443,10 +570,10 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
     <div class="container">
       <div class="section-head reveal">
         <div>
-          <span class="eyebrow">The collection</span>
+          <span class="eyebrow">المجموعة</span>
           <h2>مجموعة أثر</h2>
         </div>
-        <p>قسم المنتجات صار أوضح وأكثر أناقة: لوحة تصفية مستقلة، وبطاقات منتجات مريحة، وتفاصيل تُبرز نوع القطعة بدل ازدحام بصري.</p>
+        <p>تصفّح المرايا والإطارات والقطع الزخرفية، واختر ما يحمل طابعك الخاص أو يصلح هديةً لا تُنسى.</p>
       </div>
       <div class="collection-wrap">
         <aside class="filter-panel reveal delay-1">
@@ -471,7 +598,7 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
     <div class="container">
       <div class="inspiration-grid">
         <article class="quote-card reveal">
-          <img class="mark" src="assets/logo-transparent.png" alt="شعار أثر">
+          <img class="mark standalone-wordmark" src="assets/logo-transparent.png" alt="أثر">
           <h3>هناك كثيرٌ من الحكايات عبر الزمن… وما يزال هناك المزيد منها ليُروى.</h3>
           <p>
             أثر ليست مجرد تسمية؛ بل وعد بصري بأن كل قطعة تحتفظ بجزء من ذاكرة الفن، وتعيده إلى الحياة داخل البيت المعاصر في صورة أهدأ، وأقرب، وأكثر دفئًا.
@@ -482,11 +609,11 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
           <div class="inspiration-copy">
             <span class="eyebrow">مصادر الإلهام</span>
             <h3>تصميم يصلح للتراث… ويصلح أن يعيش اليوم.</h3>
-            <p>التقسيمة الجديدة تخدم علامات مثل أثر لأنها لا تبدو تجارية جدًا، ولا متحفية جدًا، بل تقف في المنتصف: موقع يحترم المنتج والقصة في وقت واحد.</p>
+            <p>من المعابد المصرية إلى فنون العمارة الإسلامية، تتنوع صفحات التاريخ وتبقى التفاصيل الجميلة مصدر إلهام دائم.</p>
             <ul>
-              <li>نَفَس تحريري قريب من Framer، لكن بملامح عربية دافئة.</li>
-              <li>أنيميشن هادئ لا يشتت، ويعزز قيمة الصور والمواد.</li>
-              <li>استخدام الشعار الشفاف بطريقة أفخم داخل الواجهة.</li>
+              <li>نقوش هندسية مستلهمة من تاريخ الفنون.</li>
+              <li>دوائر متناظرة وتكرارات هندسية فريدة.</li>
+              <li>ذهبٌ وأزرق وألوان تحمل دفء الحكاية.</li>
             </ul>
           </div>
         </article>
@@ -498,7 +625,7 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
     <div class="container">
       <div class="cta-box reveal">
         <div>
-          <span class="eyebrow" style="color:#d7ba92">Contact / Inquiry</span>
+          <span class="eyebrow" style="color:#d7ba92">تواصل / استفسار</span>
           <h2>هل لديك قطعة أعجبتك؟</h2>
           <p>أضفها إلى قائمة الاستفسار، ثم انسخ الرسالة الجاهزة وتواصل مع أثر عبر إنستجرام لمعرفة السعر والتوفر والتفاصيل.</p>
         </div>
@@ -515,9 +642,8 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="#home" style="margin-bottom:14px;display:inline-flex">
-          <span class="brand-symbol"><img src="assets/logo-transparent.png" alt="شعار أثر"></span>
-          <span class="brand-text"><strong style="color:#f0e2cd">أثر</strong><span>ATHAR EGYPT</span></span>
+        <a class="brand brand-minimal footer-wordmark" href="#home" style="margin-bottom:14px;display:inline-flex">
+          <img class="brand-wordmark" src="assets/logo-transparent.png" alt="أثر">
         </a>
         <p>قطع مستلهمة من روح الحضارة والزخرفة، تُقدَّم في صورة عصرية وهادئة تصلح للمكان والهدية والذكرى.</p>
       </div>
@@ -534,7 +660,7 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
         <div class="footer-links">
           <a href="#craft">رحلة القطعة</a>
           <a href="#contact">تواصل</a>
-          <a href="https://www.instagram.com/atharegypt/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.instagram.com/atharegypt/" target="_blank" rel="noopener">إنستجرام</a>
         </div>
       </div>
       <div>
@@ -543,10 +669,11 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year"></span> ATHAR EGYPT — جميع الحقوق محفوظة.</span>
-      <span>تصميم تجريبي بروح تراثية مستلهمة من Framer.</span>
+      <span>© <span id="year"></span> أثر — جميع الحقوق محفوظة.</span>
+      <span>صور المنتجات حقيقية؛ صور المعابد والزخارف للإلهام البصري.</span>
     </div>
   </div>
+<p class="photo-credits" style="margin:14px 0 0;color:#aa9985;font-size:10px;line-height:2">صور المعابد والزخارف للإلهام البصري وليست توثيقًا لمصدر صناعة المنتجات. الصور: <a href="https://unsplash.com/photos/ancient-egyptian-temple-columns-with-intricate-hieroglyphic-carvings-N_2I-Gae5oM" target="_blank" rel="noopener">Philipp Renner</a>، <a href="https://unsplash.com/photos/a-large-building-that-has-a-lot-of-carvings-on-it-8IQgp-l6r8E" target="_blank" rel="noopener">Martijn Vonk</a>، <a href="https://unsplash.com/photos/the-columns-of-the-temple-are-decorated-with-egyptian-writing-e6PQHDHmQSw" target="_blank" rel="noopener">Jordi Orts Segalés</a>، <a href="https://unsplash.com/photos/intricate-geometric-patterns-in-islamic-architectural-design-hRg3qblheoU" target="_blank" rel="noopener">NYPL / Unsplash</a>.</p>
 </footer>
 
 <div id="overlay" class="overlay" aria-hidden="true"></div>
@@ -567,7 +694,7 @@ img{display:block;max-width:100%;width:100%;object-fit:cover}
   <button id="closeDialog" class="close-dialog" aria-label="إغلاق">×</button>
   <img id="dialogImage" alt="">
   <div class="dialog-info">
-    <span class="eyebrow">Athar piece</span>
+    <span class="eyebrow">قطعة من أثر</span>
     <h3 id="dialogTitle"></h3>
     <p id="dialogDescription"></p>
     <p><b>الحالة:</b> متاح للاستفسار والطلب.</p>
@@ -625,6 +752,49 @@ $('#year').textContent=new Date().getFullYear();
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible'); observer.unobserve(entry.target)}}),{threshold:.12});
 function observeReveals(){document.querySelectorAll('.reveal:not(.visible)').forEach(el=>observer.observe(el))}
 renderProducts(); renderCart(); observeReveals();
+
+// Scroll-driven parallax: position and opacity are derived from scroll, not timers.
+(function(){
+  const scene=document.querySelector('.scroll-museum');
+  const stage=document.querySelector('.museum-sticky');
+  const parallaxPhotos=[...document.querySelectorAll('[data-parallax-image]')];
+  if(!scene || !stage) return;
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+  let pending=false;
+  function render(){
+    pending=false;
+    const vh=window.innerHeight || 800;
+    const r=scene.getBoundingClientRect();
+    const distance=Math.max(1,r.height-vh);
+    const p=clamp(-r.top/distance,0,1);
+    const appear=reduced.matches ? 1 : clamp((p-.12)/.24,0,1);
+    const phase=reduced.matches ? 0 : clamp((p-.59)/.24,0,1);
+    stage.style.setProperty('--progress',p.toFixed(3));
+    stage.style.setProperty('--appear',appear.toFixed(3));
+    stage.style.setProperty('--phase',phase.toFixed(3));
+    stage.style.setProperty('--bg-move',(reduced.matches?0:-p*vh*.14).toFixed(1)+'px');
+    stage.style.setProperty('--object-rise',(reduced.matches?0:110-p*155).toFixed(1)+'px');
+    stage.style.setProperty('--object-scale',(reduced.matches?1:.73+p*.29).toFixed(3));
+    stage.style.setProperty('--ring-rotate',(reduced.matches?0:p*310).toFixed(1)+'deg');
+    stage.style.setProperty('--heading-shift',(reduced.matches?0:-p*vh*.07).toFixed(1)+'px');
+    stage.classList.toggle('phase-two',p>.72 && !reduced.matches);
+    if(!reduced.matches){
+      parallaxPhotos.forEach(el=>{
+        const rect=el.parentElement.getBoundingClientRect();
+        if(rect.bottom<0 || rect.top>vh) return;
+        const local=clamp((vh/2-(rect.top+rect.height/2))/(vh+rect.height),-.5,.5);
+        el.style.setProperty('--parallax-y',(local*68).toFixed(1)+'px');
+      });
+    }
+  }
+  const schedule=()=>{if(!pending){pending=true;requestAnimationFrame(render)}};
+  addEventListener('scroll',schedule,{passive:true});
+  addEventListener('resize',schedule,{passive:true});
+  if(reduced.addEventListener) reduced.addEventListener('change',schedule);
+  schedule();
+})();
+
 </script>
 </body>
 </html>

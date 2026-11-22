@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "settings": {
+    "heroTitle": "من روحِ التراث إلى تفاصيلِ بيتِ اليوم.",
+    "heroDescription": "لا نعرض منتجًا فقط؛ بل نُقدِّم حضورًا بصريًا دافئًا، مستمدًا من الزخارف التاريخية واللمسات اليدوية والمواد التي تمنح القطعة طابعًا خالدًا.",
+    "heroEyebrow": "روح تراثية",
+    "instagram": "https://www.instagram.com/atharegypt/"
+  },
+  "products": [
+    {
+      "id": "mirror-pair",
+      "name": "مرآة الزخارف الملونة",
+      "category": "mirror",
+      "sub": "مرآة دائرية • طقم كبير وصغير",
+      "image": "assets/mirror-pair.webp",
+      "tag": "القطعة المميزة",
+      "desc": "مرآتان بزخارف متعددة الألوان تمنحان المكان حضورًا تراثيًا هادئًا مع تناغم بصري بين الحجمين.",
+      "visible": true,
+      "price": ""
+    },
+    {
+      "id": "mirror-white",
+      "name": "مرآة الألوان التراثية",
+      "category": "mirror",
+      "sub": "مرآة • ألوان متعددة فوق خلفية دافئة",
+      "image": "assets/mirror-white.webp",
+      "tag": "من المجموعة",
+      "desc": "مرآة بزخارف دقيقة وحضور بصري راقٍ، تجمع الذهبي مع ألوان تراثية في تكوين متناغم.",
+      "visible": true,
+      "price": ""
+    },
+    {
+      "id": "mirror-blue",
+      "name": "مرآة الإطار الأزرق",
+      "category": "mirror",
+      "sub": "مرآة • أزرق وذهبي",
+      "image": "assets/mirror-blue.webp",
+      "tag": "إصدار خاص",
+      "desc": "مرآة ذات حزام أزرق عميق يبرز تفاصيل الزخرفة ويعطي القطعة طابعًا ملكيًا هادئًا.",
+      "visible": true,
+      "price": ""
+    },
+    {
+      "id": "mirror-gold",
+      "name": "مرآة الضوء الذهبي",
+      "category": "mirror",
+      "sub": "مرآة • زخارف ذهبية دقيقة",
+      "image": "assets/mirror-gold.webp",
+      "tag": "تفاصيل متقنة",
+      "desc": "قطعة دائرية متناسقة بتفاصيل ذهبية رقيقة ولمسات لونية هادئة تتفاعل مع الضوء بشكل جميل.",
+      "visible": true,
+      "price": ""
+    },
+    {
+      "id": "round-rosette",
+      "name": "الوردة الدائرية",
+      "category": "ornament",
+      "sub": "قطعة زخرفية • تناظر هندسي",
+      "image": "assets/round-rosette.webp",
+      "tag": "زخرفة",
+      "desc": "قطعة زخرفية دائرية تعكس جمال التناظر والهندسة، مناسبة للعرض أو الإهداء.",
+      "visible": true,
+      "price": ""
+    },
+    {
+      "id": "star-flower",
+      "name": "الوردة الثمانية",
+      "category": "ornament",
+      "sub": "قطعة زخرفية • ألوان زرقاء وذهبية",
+      "image": "assets/star-flower.webp",
+      "tag": "تفصيلة محبوبة",
+      "desc": "قطعة صغيرة تستمد قوتها من تكرار الوحدة الهندسية واللون الأزرق الدافئ داخل التكوين.",
+      "visible": true,
+      "price": ""
+    },
+    {
+      "id": "star-crimson",
+      "name": "نجمة الزهور الحمراء",
+      "category": "ornament",
+      "sub": "قطعة زخرفية • أحمر وأزرق",
+      "image": "assets/star-crimson.webp",
+      "tag": "من التراث",
+      "desc": "تكوين نجمي حاد الملامح يجمع بين دفء اللون الأحمر وحيوية الخطوط الزخرفية.",
+      "visible": true,
+      "price": ""
+    },
+    {
+      "id": "wood-frame",
+      "name": "إطار حكاية أثر",
+      "category": "frame",
+      "sub": "إطار خشبي • زخارف ذهبية",
+      "image": "assets/wood-frame.webp",
+      "tag": "هدية مميزة",
+      "desc": "إطار زخرفي غني بالذهب والنقش، مناسب لعرض نص أو صورة لها قيمة وجدانية خاصة.",
+      "visible": true,
+      "price": ""
+    }
+  ]
+}

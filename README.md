@@ -1,13 +1,29 @@
-# ATHAR EGYPT — Preview Website
+# أثر — موقع تراثي تجريبي
 
-RTL Arabic static showcase for ATHAR EGYPT, built with HTML, CSS and vanilla JavaScript.
+موقع عربي متجاوب على GitHub Pages، يضم معرض منتجات، تأثيرات Parallax، ومشهد زخارف دائري.
 
-## Deployment on GitHub Pages
+## الصفحات
 
-1. Create a public repository named `athar-egypt-website` (or a name of your choice).
-2. Upload `index.html`, `.nojekyll`, and the `assets/` directory **to the repository root**.
-3. Go to **Settings → Pages → Build and deployment → Deploy from a branch**.
-4. Set **Branch: main** and **Folder: /(root)**, then save.
-5. Once GitHub Pages finishes deploying, the preview is typically available at `https://USERNAME.github.io/REPOSITORY/`.
+- `index.html` — الموقع العام.
+- `admin.html` — لوحة تحرير محلية للتجربة، وليست لوحة مدير آمنة.
+- `catalog.json` — بيانات المنتجات والنصوص المنشورة للزوار.
+- `assets/` — صور المنتجات والشعار والزخارف.
 
-> Prototype only. No payment processing, order backend, or verified product inventory. Product photos originated from provided screenshots; replace with original high-quality photos before launch. The site uses the provided transparent Arabic wordmark. The scroll experience features temple photographs and user-supplied ornamental reference photos.
+## استخدام لوحة التحكم
+
+1. افتح `admin.html` وعدّل المنتج أو النصوص والصور.
+2. افتح «معاينة التعديلات» للتأكد من شكلها على **نفس المتصفح**.
+3. افتح «النشر والنسخ» ونزّل `catalog.json`.
+4. استبدل ملف `catalog.json` في جذر المستودع بالمخرَج الجديد، ثم انتظر نشر GitHub Pages.
+
+> **هام:** GitHub Pages يستضيف صفحات ثابتة. التعديل داخل `admin.html` يحفظ مسودة في LocalStorage على الجهاز فقط، ولا ينشر للمستخدمين الآخرين. لا يوجد تسجيل دخول آمن أو إدارة طلبات مشتركة أو قاعدة بيانات. لا تخزّن أسرارًا أو بيانات عملاء هنا. لإدارة مشتركة وآمنة يلزم Backend وقاعدة بيانات وصلاحيات.
+
+## الصور
+
+الزخرفتان الشفافتان `motif-history-cutout.webp` و`motif-gold-cutout.webp` **معالجات بصرية مولدة** بالاستناد إلى الصور المرجعية المرسلة، وليستا صورة وثائقية أصلية ولا صورة مطابقة مضمونة للمنتج. بقية صور المنتجات مستخلصة من صور البراند المرسلة. صور العمارة المستضافة خارجيًا موثقة في `PHOTO_SOURCES.md`.
+
+## النشر
+
+GitHub Pages من الفرع `main` والمجلد `/ (root)`.
+
+https://altaqawy.github.io/athar-egypt-website/

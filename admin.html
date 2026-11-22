@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#221c17">
+<title>لوحة إدارة أثر — نسخة تجريبية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2e261e;--paper:#f7f3eb;--panel:#fffdf8;--edge:#e7dccb;--gold:#a8824b;--sub:#877766;--dark:#241e19;--sans:Cairo,Arial,sans-serif;--serif:Amiri,serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px}button,input,select,textarea{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}img{display:block;width:100%;height:100%;object-fit:cover}.layout{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:100vh}.sidebar{background:var(--dark);color:#f6e5cc;padding:30px 20px;position:sticky;height:100dvh;top:0;display:flex;flex-direction:column;gap:24px}.brand{display:flex;align-items:center;gap:14px;padding:4px 11px 26px;border-bottom:1px solid rgba(255,255,255,.11)}.brand img{width:78px;height:53px;object-fit:contain;filter:brightness(1.6)}.brand strong{font-size:14px;display:block}.brand small{font-size:10px;color:#c0ab8d}.nav{display:grid;gap:8px}.nav button{width:100%;display:flex;gap:13px;align-items:center;text-align:right;border:1px solid transparent;border-radius:14px;color:#dbc8ad;background:transparent;padding:13px 14px;font-size:13px;font-weight:700}.nav button.active,.nav button:hover{background:rgba(219,183,127,.13);border-color:rgba(225,187,128,.16);color:#fff}.nav svg{width:19px;height:19px}.sidebar-bottom{margin-top:auto;font-size:11px;line-height:2;color:#bba789;padding:0 10px}.sidebar-bottom a{color:#ffe0b3;text-decoration:underline}.workspace{min-width:0;padding:32px clamp(16px,3.5vw,54px) 56px}.top{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:25px}.top-title h1{font:700 clamp(30px,3.5vw,45px) var(--serif);margin:0}.top-title p{margin:0;color:var(--sub);font-size:12px}.top-actions,.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border-radius:13px;padding:12px 19px;border:1px solid var(--edge);background:#fff;color:var(--ink);font-size:12px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn.primary{background:#2e251e;color:#fff;border-color:#2e251e}.btn:hover{filter:brightness(.96)}.btn.warn{color:#933d38}.btn:disabled{opacity:.45;cursor:not-allowed}.notice{border:1px solid #e1caa6;background:#fbf0da;color:#74542a;border-radius:18px;padding:17px 19px;font-size:12px;line-height:2.1;margin-bottom:26px}.notice strong{display:block;font-size:14px}.overview{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:24px}.metric,.panel{background:var(--panel);border:1px solid var(--edge);border-radius:21px;box-shadow:0 12px 30px rgba(46,34,20,.035)}.metric{padding:21px}.metric .k{font-size:11px;color:var(--sub)}.metric strong{display:block;font:700 34px var(--serif);margin:4px 0}.metric span{font-size:10px;color:#a6875b}.panel{padding:25px;margin-bottom:22px}.panel-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-bottom:18px}.panel-heading h2{margin:0;font:700 29px var(--serif)}.panel-heading p{margin:2px 0;color:var(--sub);font-size:12px}.search-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}.search-row input,.search-row select,.field input,.field select,.field textarea{width:100%;border:1px solid #ded1bd;background:#fff;border-radius:12px;padding:11px 14px;color:var(--ink);outline:none}.search-row input:focus,.field input:focus,.field select:focus,.field textarea:focus{border-color:#ac8250;box-shadow:0 0 0 3px rgba(178,142,93,.12)}.search-row input{flex:1;min-width:170px}.search-row select{width:180px}.product-table{display:grid;gap:10px}.product-row{display:grid;grid-template-columns:70px minmax(140px,1fr) 100px 110px 120px;gap:14px;align-items:center;padding:10px;border-radius:16px;background:#faf6ee;border:1px solid #efe5d6}.thumb{width:70px;height:70px;border-radius:12px;object-fit:cover;background:#ede4d5}.product-row h3{font-size:13px;margin:0 0 6px}.product-row p{font-size:11px;margin:0;color:var(--sub);line-height:1.7}.pill{display:inline-flex;border-radius:999px;padding:7px 12px;background:#e9e0d2;color:#584736;font-size:11px;justify-content:center;align-items:center}.pill.hidden{background:#f0dcd6;color:#9e5046}.row-actions{display:flex;gap:6px}.row-actions button{border:1px solid #ddd0bb;background:#fff;border-radius:10px;padding:8px;font-size:11px}.row-actions button.danger{color:#9d4943}.field{display:grid;gap:7px;margin-bottom:15px}.field label{font-size:12px;font-weight:800;color:#685440}.field small{color:var(--sub);font-size:11px}.field textarea{min-height:108px;resize:vertical;line-height:2}.fields{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.field.full{grid-column:1/-1}.field .check{width:auto;accent-color:#a78655}.file-drop{display:flex;align-items:center;gap:16px;padding:16px;border:1px dashed #c7ad86;border-radius:16px;cursor:pointer;background:#fbf4e8}.file-drop img{width:92px;height:92px;border-radius:13px;object-fit:contain;background:#e9decb}.file-drop input{display:none}.file-drop span{flex:1;color:#8e734e;font-size:12px;line-height:1.9}.view{display:none}.view.active{display:block}.empty{padding:40px 20px;text-align:center;color:var(--sub);font-size:12px}.help-steps{display:grid;gap:14px;list-style:none;padding:0;margin:18px 0}.help-steps li{display:flex;gap:14px;align-items:flex-start;font-size:12px;line-height:2;color:#6f5d4a}.step-dot{width:32px;height:32px;border-radius:50%;flex:0 0 32px;display:grid;place-items:center;background:#eee0c6;color:#866039;font-weight:800}.preview-card{display:flex;align-items:center;gap:18px;background:linear-gradient(120deg,#ead8bc,#f7f0e2);border-radius:20px;padding:24px}.preview-card img{width:112px;height:105px;object-fit:contain}.preview-card strong{font:700 26px var(--serif)}.preview-card p{font-size:12px;color:#796a59;line-height:1.9}.bar{height:6px;border-radius:99px;background:#e8ddcb;margin:12px 0}.bar span{height:100%;background:#ae8a59;border-radius:99px;display:block}.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);background:#272019;color:#fff;padding:14px 24px;border-radius:50px;opacity:0;pointer-events:none;transition:.2s;z-index:90;font-size:12px}.toast.show{transform:translate(-50%,0);opacity:1}.overlay{position:fixed;inset:0;background:rgba(18,13,9,.55);display:none;z-index:70}.overlay.show{display:block}.modal{position:fixed;right:50%;top:50%;transform:translate(50%,-50%);width:min(700px,calc(100vw - 20px));max-height:min(92dvh,1000px);overflow:auto;display:none;background:#fffcf7;border-radius:24px;padding:28px;box-shadow:0 30px 80px rgba(0,0,0,.18);z-index:80}.modal.show{display:block}.modal-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}.modal-head h2{margin:0;font:700 31px var(--serif)}.modal-close{width:40px;height:40px;border:1px solid var(--edge);border-radius:12px;background:#fff;font-size:20px}.toolbar{display:flex;gap:10px;flex-wrap:wrap}.toolbar .btn{flex:0 1 auto}.hamburger{display:none}
+@media(max-width:1024px){.layout{grid-template-columns:210px minmax(0,1fr)}.sidebar{padding:24px 12px}.overview{grid-template-columns:repeat(2,minmax(0,1fr))}.product-row{grid-template-columns:64px minmax(120px,1fr) 86px 100px;gap:9px}.product-row .product-state{display:none}}
+@media(max-width:720px){.layout{display:block}.workspace{padding:18px 14px 50px}.sidebar{height:auto;position:static;padding:12px 15px;gap:0}.sidebar .brand{border:0;padding:0}.sidebar .brand img{width:62px}.sidebar .brand small{font-size:9px}.sidebar .nav,.sidebar-bottom{display:none}.sidebar.open .nav{display:grid;margin-top:16px}.hamburger{display:inline-flex;margin-right:auto}.top{margin-top:14px}.top-title h1{font-size:34px}.top-actions{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.top-actions .btn{padding:12px 5px}.panel{padding:18px;border-radius:18px}.panel-heading h2{font-size:26px}.search-row input,.search-row select{width:100%;flex:1 1 100%}.product-row{grid-template-columns:58px minmax(80px,1fr) 80px;gap:9px;padding:8px}.product-row .product-category,.product-row .product-state{display:none}.thumb{width:58px;height:58px}.row-actions{flex-direction:column}.row-actions button{padding:5px;font-size:10px}.fields{grid-template-columns:1fr}.modal{padding:19px;max-height:95dvh}.modal-head h2{font-size:27px}.preview-card img{width:70px;height:70px}.overview{gap:10px}.metric{padding:16px}.metric strong{font-size:30px}}
+@media(max-width:360px){.product-row h3{font-size:11px}.product-row p{font-size:10px}.overview{grid-template-columns:1fr 1fr}.top-actions{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><img src="assets/logo-transparent.png" alt="أثر"><div><strong>لوحة إدارة أثر</strong><small>نسخة إدارة تجريبية</small></div><button class="btn hamburger" id="toggleNav" type="button">القائمة ☰</button></div>
+  <nav class="nav" id="sideNav">
+    <button type="button" class="active" data-view="overview">◈ لوحة المعلومات</button>
+    <button type="button" data-view="products">◉ إدارة المنتجات</button>
+    <button type="button" data-view="content">✎ محتوى الصفحة</button>
+    <button type="button" data-view="publish">↥ النشر والنسخ</button>
+  </nav>
+  <div class="sidebar-bottom">لوحة تجريبية تعمل داخل المتصفح، وليست تسجيل دخول آمنًا للمدير.<br><a href="index.html">العودة للموقع</a></div>
+</aside>
+<div class="workspace">
+  <header class="top">
+    <div class="top-title"><h1>إدارة موقع أثر</h1><p>المنتجات والمحتوى والصور في مكان واحد</p></div>
+    <div class="top-actions"><a class="btn" href="index.html?preview=1" target="_blank" rel="noopener">↗ معاينة التعديلات</a><button class="btn primary" id="downloadTop" type="button">↓ تصدير للنشر</button></div>
+  </header>
+  <div class="notice"><strong>تنبيه مهم: وضع الإدارة المحلي</strong>أي تعديل هنا يُحفظ على جهازك في هذا المتصفح فقط، ولا يُنشر تلقائيًا للزوار. لتحديث النسخة العامة، صدّر ملف <b>catalog.json</b> وارفعه إلى جذر مستودع GitHub، أو أرسله هنا لرفعه. الموقع الثابت لا يوفّر تسجيل دخول آمنًا أو قاعدة بيانات مشتركة؛ لذلك لا تُدخل بيانات عملاء حساسة هنا.</div>
+
+  <section class="view active" id="view-overview">
+    <div class="overview" id="metrics"></div>
+    <div class="panel"><div class="panel-heading"><div><h2>المجموعة الحالية</h2><p>نظرة سريعة على القطع التي يمكنك تعديلها</p></div><button class="btn primary" data-view="products">إدارة المجموعة</button></div><div id="overviewProducts" class="product-table"></div></div>
+    <div class="panel"><div class="panel-heading"><h2>مساحة إدارة مرنة</h2></div><div class="preview-card"><img src="assets/logo-transparent.png" alt="أثر"><div><strong>من أثر… إلى العالم</strong><p>عدّل البيانات محليًا، اختبرها في المعاينة، ثم صدّر ملف النشر ليظهر التعديل لجميع الزوار بعد رفعه.</p></div></div></div>
+  </section>
+
+  <section class="view" id="view-products">
+    <div class="panel"><div class="panel-heading"><div><h2>المنتجات</h2><p>أضف أو عدّل أو أخفِ القطع، وغيّر الصور والأسعار والتصنيف</p></div><button class="btn primary" id="addProduct" type="button">+ منتج جديد</button></div>
+      <div class="search-row"><input id="search" placeholder="ابحث باسم القطعة أو وصفها…" aria-label="البحث في المنتجات"><select id="filterCategory"><option value="all">كل الفئات</option><option value="mirror">المرايا</option><option value="ornament">الزخارف</option><option value="frame">الإطارات</option></select></div><div id="productRows" class="product-table"></div>
+    </div>
+  </section>
+
+  <section class="view" id="view-content">
+    <div class="panel"><div class="panel-heading"><div><h2>محتوى الصفحة الرئيسية</h2><p>تحكّم في النصوص الأساسية ورابط إنستجرام</p></div></div>
+      <form id="settingsForm">
+      <div class="fields"><div class="field full"><label for="sTitle">عنوان الهيرو</label><input id="sTitle" required maxlength="180"></div>
+      <div class="field full"><label for="sIntro">الوصف أسفل العنوان</label><textarea id="sIntro" required maxlength="600"></textarea></div>
+      <div class="field"><label for="sEyebrow">النص الصغير أعلى العنوان</label><input id="sEyebrow" maxlength="80"></div>
+      <div class="field"><label for="sInstagram">حساب إنستجرام</label><input id="sInstagram" type="url" placeholder="https://www.instagram.com/atharegypt/"></div>
+      </div><button class="btn primary" type="submit">حفظ المحتوى</button></form>
+    </div>
+  </section>
+
+  <section class="view" id="view-publish">
+    <div class="panel"><div class="panel-heading"><div><h2>النشر والنسخ الاحتياطي</h2><p>ملف واحد يحمل كل المنتجات والنصوص وصور المنتجات الجديدة</p></div></div>
+      <div class="toolbar"><button id="exportCatalog" class="btn primary" type="button">↓ تنزيل catalog.json</button><label class="btn" for="importCatalog" style="cursor:pointer">↑ استيراد نسخة محفوظة</label><input type="file" id="importCatalog" accept="application/json,.json" hidden><button id="resetCatalog" class="btn warn" type="button">استعادة النسخة المنشورة</button></div>
+      <ol class="help-steps">
+        <li><span class="step-dot">1</span><span>استخدم لوحة التحكم لإضافة المنتجات أو تغيير الأسعار، ثم اضغط تنزيل <b>catalog.json</b>.</span></li>
+        <li><span class="step-dot">2</span><span>افتح <a style="text-decoration:underline;color:#8b5b30" target="_blank" rel="noopener" href="https://github.com/altaqawy/athar-egypt-website">مستودع أثر على GitHub</a>، واستبدل ملف <b>catalog.json</b> الموجود في الجذر بالملف الجديد، أو ارفعه هنا كي أتولى تحديثه.</span></li>
+        <li><span class="step-dot">3</span><span>بعد اكتمال GitHub Pages، تظهر التغييرات للزوار. معاينة المتصفح المحلية لا تنشر أي شيء بمفردها.</span></li>
+      </ol>
+      <div class="notice" style="margin:0"><strong>عن الأمان</strong>هذه الواجهة لا تطلب كلمة مرور لأنها مجرد مُحرِّر بيانات محلي. لا تضع فيها كلمات مرور أو مفاتيح GitHub. الإدارة الحقيقية المتزامنة بين الأجهزة تتطلب ربطًا آمنًا بخدمة خلفية وقاعدة بيانات.</div>
+    </div>
+  </section>
+</div>
+</div>
+<div class="overlay" id="overlay"></div>
+<div class="modal" id="editor" role="dialog" aria-modal="true" aria-label="تحرير منتج">
+  <div class="modal-head"><h2 id="editorTitle">إضافة منتج</h2><button class="modal-close" type="button" id="closeEditor" aria-label="إغلاق">×</button></div>
+  <form id="productForm">
+    <input type="hidden" id="pId">
+    <div class="fields">
+      <div class="field"><label for="pName">اسم المنتج</label><input id="pName" required maxlength="120"></div>
+      <div class="field"><label for="pCategory">التصنيف</label><select id="pCategory"><option value="mirror">المرايا</option><option value="ornament">الزخارف</option><option value="frame">الإطارات</option></select></div>
+      <div class="field"><label for="pPrice">السعر (اختياري)</label><input id="pPrice" placeholder="مثال: 650 جنيه" maxlength="40"></div>
+      <div class="field"><label for="pTag">الوسم على الصورة</label><input id="pTag" maxlength="60"></div>
+      <div class="field full"><label for="pSub">وصف مختصر</label><input id="pSub" maxlength="170"></div>
+      <div class="field full"><label for="pDesc">وصف المنتج</label><textarea id="pDesc" maxlength="900"></textarea></div>
+      <div class="field full"><label>صورة المنتج</label><label class="file-drop"><img id="pPreview" src="assets/round-rosette.webp" alt="معاينة الصورة"><span>اضغط لاختيار صورة من جهازك (PNG، JPG أو WebP). سيتم تصغيرها لتناسب الموقع وتخزينها محليًا كجزء من ملف البيانات.</span><input id="pImage" type="file" accept="image/png,image/webp,image/jpeg"></label></div>
+      <div class="field full"><label><input type="checkbox" id="pVisible" class="check" checked> عرض المنتج للزوار</label></div>
+    </div>
+    <div class="toolbar"><button class="btn primary" type="submit">حفظ المنتج</button><button class="btn" type="button" id="cancelEditor">إلغاء</button></div>
+  </form>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const DRAFT_KEY='athar.dashboard.draft.v1';
+const $=s=>document.querySelector(s);
+const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const categories={mirror:'المرايا',ornament:'الزخارف',frame:'الإطارات'};
+const validImage=v=>typeof v==='string'&&(/^assets\/[\w.-]+$/.test(v)||/^data:image\/(webp|png|jpeg);base64,[A-Za-z0-9+/=]+$/.test(v)||/^https:\/\//.test(v));
+let catalog={version:1,products:[],settings:{}};let published=null;let editorImage='';let timer;
+function toast(msg){$('#toast').textContent=msg;$('#toast').classList.add('show');clearTimeout(timer);timer=setTimeout(()=>$('#toast').classList.remove('show'),2600)}
+function normalize(raw){if(!raw||!Array.isArray(raw.products))throw Error('Invalid catalog');const seen=new Set();return {version:1,settings:{heroTitle:String(raw.settings?.heroTitle??''),heroDescription:String(raw.settings?.heroDescription??''),heroEyebrow:String(raw.settings?.heroEyebrow??''),instagram:String(raw.settings?.instagram??'')},products:raw.products.filter(p=>p&&p.id&&p.name).map(p=>({id:String(p.id).slice(0,60),name:String(p.name).slice(0,120),category:categories[p.category]?p.category:'ornament',sub:String(p.sub??'').slice(0,170),image:validImage(p.image)?p.image:'assets/round-rosette.webp',tag:String(p.tag??'').slice(0,60),desc:String(p.desc??'').slice(0,900),price:String(p.price??'').slice(0,40),visible:p.visible!==false})).filter(p=>!seen.has(p.id)&&seen.add(p.id))}}
+function save(){try{localStorage.setItem(DRAFT_KEY,JSON.stringify(catalog));return true}catch(e){toast('التخزين المحلي ممتلئ: صدّر نسخة، أو استخدم صورًا أصغر.');return false}}
+function sync(){renderMetrics();renderProducts();fillSettings()}
+async function init(){try{published=normalize(await (await fetch('catalog.json',{cache:'no-store'})).json());}catch{published={version:1,products:[],settings:{}}}try{const saved=localStorage.getItem(DRAFT_KEY);catalog=saved?normalize(JSON.parse(saved)):structuredClone(published)}catch{catalog=structuredClone(published)}sync()}
+function activate(v){document.querySelectorAll('.view').forEach(el=>el.classList.toggle('active',el.id==='view-'+v));document.querySelectorAll('[data-view]').forEach(el=>el.classList.toggle('active',el.dataset.view===v));$('#sidebar').classList.remove('open');scrollTo({top:0,behavior:'smooth'})}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(b)activate(b.dataset.view)});
+$('#toggleNav').onclick=()=>$('#sidebar').classList.toggle('open');
+function renderMetrics(){const active=catalog.products.filter(p=>p.visible).length;const counts=[['كل القطع',catalog.products.length,'المنتجات المسجلة'],['منشور',active,'الظاهر في المعاينة'],['المرايا',catalog.products.filter(p=>p.category==='mirror').length,'قطع دائرية ومرايا'],['الزخارف',catalog.products.filter(p=>p.category==='ornament').length,'أعمال هندسية']];$('#metrics').innerHTML=counts.map(([label,num,sub])=>`<div class="metric"><div class="k">${label}</div><strong>${num}</strong><span>${sub}</span></div>`).join('');$('#overviewProducts').innerHTML=catalog.products.slice(0,3).map(p=>rowHtml(p)).join('')||'<div class="empty">لم تُضَف منتجات بعد.</div>'}
+function rowHtml(p){return `<article class="product-row"><img class="thumb" src="${escape(p.image)}" alt="${escape(p.name)}"><div><h3>${escape(p.name)}</h3><p>${escape(p.price||'السعر عند الطلب')}</p></div><span class="pill product-category">${categories[p.category]}</span><span class="pill product-state ${p.visible?'':'hidden'}">${p.visible?'ظاهر':'مخفي'}</span><div class="row-actions"><button type="button" data-edit="${escape(p.id)}">تعديل</button><button class="danger" type="button" data-delete="${escape(p.id)}">حذف</button></div></article>`}
+function renderProducts(){const q=$('#search').value.trim().toLowerCase(),category=$('#filterCategory').value;const filtered=catalog.products.filter(p=>(category==='all'||p.category===category)&&(`${p.name} ${p.sub} ${p.desc}`.toLowerCase().includes(q)));$('#productRows').innerHTML=filtered.map(rowHtml).join('')||'<div class="empty">لا توجد منتجات مطابقة. جرّب البحث عن اسم مختلف أو أضف منتجًا جديدًا.</div>'}
+$('#search').oninput=renderProducts;$('#filterCategory').onchange=renderProducts;
+document.addEventListener('click',e=>{const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');if(edit)openEditor(edit.dataset.edit);if(del){const p=catalog.products.find(p=>p.id===del.dataset.delete);if(p&&confirm(`هل تريد حذف «${p.name}» من المسودة المحلية؟`)){catalog.products=catalog.products.filter(x=>x.id!==p.id);if(save()){sync();toast('تم حذف المنتج من المسودة')}}}});
+function openEditor(id=null){const p=catalog.products.find(x=>x.id===id);$('#editorTitle').textContent=p?'تعديل المنتج':'إضافة منتج';$('#pId').value=p?.id||'';$('#pName').value=p?.name||'';$('#pCategory').value=p?.category||'ornament';$('#pPrice').value=p?.price||'';$('#pTag').value=p?.tag||'';$('#pSub').value=p?.sub||'';$('#pDesc').value=p?.desc||'';$('#pVisible').checked=p?.visible!==false;editorImage=p?.image||'assets/round-rosette.webp';$('#pPreview').src=editorImage;$('#pImage').value='';$('#overlay').classList.add('show');$('#editor').classList.add('show');document.body.style.overflow='hidden';$('#pName').focus()}
+function closeEditor(){$('#overlay').classList.remove('show');$('#editor').classList.remove('show');document.body.style.overflow=''}
+$('#addProduct').onclick=()=>openEditor();$('#closeEditor').onclick=closeEditor;$('#cancelEditor').onclick=closeEditor;$('#overlay').onclick=closeEditor;document.addEventListener('keydown',e=>{if(e.key==='Escape')closeEditor()});
+$('#pImage').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;if(!['image/jpeg','image/png','image/webp'].includes(f.type)||f.size>15e6){toast('اختر صورة JPG أو PNG أو WebP أقل من 15MB');return}try{const bmp=await createImageBitmap(f);const scale=Math.min(1,760/Math.max(bmp.width,bmp.height));const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(bmp.width*scale));canvas.height=Math.max(1,Math.round(bmp.height*scale));canvas.getContext('2d').drawImage(bmp,0,0,canvas.width,canvas.height);editorImage=canvas.toDataURL('image/webp',.78);$('#pPreview').src=editorImage;toast('الصورة جاهزة للحفظ')}catch(e){toast('تعذر قراءة الصورة')}};
+$('#productForm').onsubmit=e=>{e.preventDefault();const id=$('#pId').value||'item-'+Date.now().toString(36);const p={id,name:$('#pName').value.trim(),category:$('#pCategory').value,price:$('#pPrice').value.trim(),tag:$('#pTag').value.trim(),sub:$('#pSub').value.trim(),desc:$('#pDesc').value.trim(),visible:$('#pVisible').checked,image:editorImage};if(!p.name)return;const previous=structuredClone(catalog);const index=catalog.products.findIndex(x=>x.id===id);if(index>=0)catalog.products[index]=p;else catalog.products.unshift(p);if(save()){closeEditor();sync();toast('تم حفظ المنتج في المسودة المحلية')}else catalog=previous};
+function fillSettings(){const s=catalog.settings||{};$('#sTitle').value=s.heroTitle||'';$('#sIntro').value=s.heroDescription||'';$('#sEyebrow').value=s.heroEyebrow||'';$('#sInstagram').value=s.instagram||''}
+$('#settingsForm').onsubmit=e=>{e.preventDefault();const url=$('#sInstagram').value.trim();if(url&&!/^https:\/\/(www\.)?instagram\.com\//i.test(url)){toast('استخدم رابط Instagram صحيحًا');return}catalog.settings={heroTitle:$('#sTitle').value.trim(),heroDescription:$('#sIntro').value.trim(),heroEyebrow:$('#sEyebrow').value.trim(),instagram:url};if(save())toast('تم حفظ محتوى الصفحة محليًا')};
+function exportFile(){const contents=JSON.stringify(catalog,null,2);const blob=new Blob([contents],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='catalog.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast('تم تجهيز ملف catalog.json للنشر')}
+$('#exportCatalog').onclick=exportFile;$('#downloadTop').onclick=exportFile;
+$('#importCatalog').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;if(file.size>9e6){toast('الملف كبير جدًا');return}try{const loaded=normalize(JSON.parse(await file.text()));const backup=structuredClone(catalog);catalog=loaded;if(!save()){catalog=backup;return}sync();toast('تم استيراد المسودة بنجاح')}catch{toast('الملف غير صالح أو غير متوافق')}e.target.value=''};
+$('#resetCatalog').onclick=()=>{if(confirm('هل تريد حذف التعديلات المحلية والعودة إلى النسخة الموجودة على GitHub؟')){catalog=structuredClone(published);localStorage.removeItem(DRAFT_KEY);sync();toast('تمت العودة إلى النسخة المنشورة')}};
+init();
+</script>
+</body>
+</html>
